@@ -369,42 +369,38 @@ body.light .bar-guar-text { color: var(--dim); }
 /* ─── WHAT'S INSIDE — card layout ─── */
 .inside-list { display: flex; flex-direction: column; }
 .inside-item {
-  display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 32px; padding: 56px 0;
+  padding: 56px 0;
   border-bottom: 1px solid var(--border);
-  align-items: start;
   transition: border-color 0.25s;
 }
 .inside-item:first-child { border-top: 1px solid var(--border); }
 .inside-item:last-child { border-bottom: none; }
-.inside-num {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px; font-weight: 800;
-  letter-spacing: 3px; text-transform: uppercase;
-  line-height: 1;
-  color: var(--orange);
-  padding-top: 6px;
-  transition: color 0.25s;
-}
-/* Mobile-only num shown inside card-body */
+.inside-num { display: none; }
 .inside-num-mobile {
-  display: none;
+  display: block;
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 11px; font-weight: 800;
   letter-spacing: 3px; text-transform: uppercase;
-  color: var(--orange); margin-bottom: 8px;
+  color: var(--orange); margin-bottom: 10px;
 }
+/* Desktop: side-by-side card */
 .inside-card {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  align-items: stretch;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
   transition: background 0.25s, border-color 0.25s;
 }
+/* Odd items: copy left, image right */
+.inside-item:nth-child(odd) .inside-card { grid-template-columns: 2fr 3fr; }
+.inside-item:nth-child(odd) .inside-img-wrap { order: 2; }
+.inside-item:nth-child(odd) .inside-card-body { order: 1; }
 .inside-img-wrap { line-height: 0; }
-.inside-img-wrap img { width: 100%; display: block; aspect-ratio: 21/9; object-fit: cover; }
-.inside-card-body { padding: 28px 32px; }
+.inside-img-wrap img { width: 100%; display: block; height: 100%; min-height: 300px; object-fit: cover; }
+.inside-card-body { padding: 36px 40px; display: flex; flex-direction: column; justify-content: center; }
 .inside-label {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 18px; font-weight: 800;
@@ -455,45 +451,32 @@ body.light .bar-guar-text { color: var(--dim); }
 }
 .phase-desc { font-size: 15px; color: var(--dim); line-height: 1.7; transition: color 0.25s; }
 
-/* ─── OUTCOMES / VALUE LIST ─── */
-.value-list {
-  border: 1px solid var(--border);
-  border-radius: 10px; overflow: hidden;
-  transition: border-color 0.25s;
+/* ─── WALK AWAY WITH ─── */
+.walkaway-box {
+  background: rgba(74,222,128,0.05);
+  border: 1px solid rgba(74,222,128,0.2);
+  border-radius: 10px; padding: 40px 48px;
+  transition: background 0.25s, border-color 0.25s;
 }
-.value-row {
-  display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  padding: 16px 28px;
-  border-bottom: 1px solid var(--border);
-  transition: border-color 0.25s;
+body.light .walkaway-box {
+  background: rgba(26,122,58,0.06);
+  border-color: rgba(26,122,58,0.2);
 }
-.value-row:last-child { border-bottom: none; }
-.value-row.total-row {
-  background: var(--surface);
-  padding: 20px 28px;
-  transition: background 0.25s;
-}
-.value-item-text {
-  display: flex; align-items: flex-start; gap: 12px;
-  font-size: 14px; color: var(--dim); line-height: 1.5; transition: color 0.25s;
-}
-.value-item-text .arr { color: var(--orange); flex-shrink: 0; font-weight: 700; margin-top: 1px; }
-.value-price {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 15px; font-weight: 800; letter-spacing: 1px;
-  color: var(--green); white-space: nowrap; flex-shrink: 0;
+.walkaway-heading {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(18px, 2vw, 24px); font-weight: 900;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  color: var(--text); margin-bottom: 28px;
   transition: color 0.25s;
 }
-.value-total-label {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 13px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px;
-  color: var(--text); transition: color 0.25s;
+.walkaway-list { display: flex; flex-direction: column; gap: 16px; }
+.walkaway-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  font-size: 15px; color: var(--dim); line-height: 1.55;
+  transition: color 0.25s;
 }
-.value-total-amount {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 22px; font-weight: 900; letter-spacing: 1px;
-  color: var(--orange); white-space: nowrap;
-}
+.walkaway-icon { width: 20px; height: 20px; flex-shrink: 0; margin-top: 1px; color: #4ade80; }
+body.light .walkaway-icon { color: var(--green); }
 
 /* ─── WHO ─── */
 .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
@@ -523,19 +506,22 @@ body.light .guarantee-box {
   background: rgba(26,122,58,0.06);
   border-color: rgba(26,122,58,0.2);
 }
-.guar-headline {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: clamp(52px, 6vw, 80px);
-  font-weight: 900; line-height: 0.92;
-  letter-spacing: -3px; text-transform: uppercase;
-  color: var(--text); margin-bottom: 8px;
-  transition: color 0.25s;
-}
 .guarantee-label {
+  display: flex; align-items: center; gap: 8px;
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: #4ade80;
 }
 body.light .guarantee-label { color: var(--green); }
+.guarantee-icon { flex-shrink: 0; color: #4ade80; }
+body.light .guarantee-icon { color: var(--green); }
+.guar-headline {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(26px, 3.2vw, 42px);
+  font-weight: 900; line-height: 1.0;
+  letter-spacing: -1.5px; text-transform: uppercase;
+  color: var(--text); margin-bottom: 4px;
+  transition: color 0.25s;
+}
 .guarantee-body { font-size: 14px; color: var(--dim); line-height: 1.65; transition: color 0.25s; }
 .guarantee-body strong { color: var(--text); }
 
@@ -705,10 +691,10 @@ body.light .guarantee-label { color: var(--green); }
 }
 .final-headline {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 900; font-size: clamp(36px, 5vw, 64px);
+  font-weight: 900; font-size: clamp(36px, 4.5vw, 58px);
   text-transform: uppercase; letter-spacing: -2px;
   line-height: 0.93; color: var(--text); margin-bottom: 24px;
-  max-width: 560px; margin-left: auto; margin-right: auto;
+  max-width: 840px; margin-left: auto; margin-right: auto;
   transition: color 0.25s;
 }
 .final-headline .o { color: var(--orange); }
@@ -740,7 +726,8 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
   .hero-cta-group { max-width: 100%; }
 
   .hero { padding: 40px 16px; min-height: calc(100dvh - var(--nav-h) - 37px); }
-  .hero h1 { font-size: clamp(28px, 8.2vw, 44px); letter-spacing: -1.5px; }
+  .hero h1 { font-size: clamp(28px, 8.2vw, 44px); letter-spacing: -1.5px; text-transform: none; }
+  .hero-sub { font-size: 14px; font-weight: 400; margin-bottom: 32px; }
 
   /* Urgency bar: scale down on mobile */
   .bar-cd-label { font-size: 9px; letter-spacing: 2px; }
@@ -756,18 +743,14 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
   .contrast-grid,
   .who-grid,
   .pricing-includes { grid-template-columns: 1fr; }
-  .value-row { flex-direction: column; align-items: flex-start; gap: 6px; }
-  .value-price { font-size: 13px; }
-  .value-row.total-row { flex-direction: row; align-items: center; }
-  /* What's Inside: mobile */
-  .inside-item {
-    grid-template-columns: 1fr;
-    gap: 0; padding: 32px 0;
-  }
-  .inside-num { display: none; } /* hide big desktop number */
-  .inside-num-mobile { display: block; } /* show small mobile number inside card */
-  .inside-img-wrap { display: block; }
-  .inside-card-body { padding: 20px 20px; }
+  .walkaway-box { padding: 28px 24px; }
+  /* What's Inside: mobile — reset to stacked */
+  .inside-item { padding: 32px 0; }
+  .inside-card { display: block; }
+  .inside-img-wrap img { height: auto; min-height: 0; aspect-ratio: 21/9; }
+  .inside-card-body { padding: 20px; display: block; }
+  .inside-item:nth-child(odd) .inside-img-wrap { order: 0; }
+  .inside-item:nth-child(odd) .inside-card-body { order: 0; }
   /* About: stack on mobile */
   .about-inner { grid-template-columns: 1fr; }
   .about-avatar { max-width: 180px; aspect-ratio: 1/1; }
@@ -1134,38 +1117,33 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
 
   <!-- OUTCOMES -->
   <section class="section" style="padding-top: 0;">
-    <div class="section-header" style="margin-bottom: 24px;">
-      <div class="eyebrow">What You'll Walk Away With</div>
-    </div>
-
-    <div class="value-list">
-      <div class="value-row">
-        <div class="value-item-text"><span class="arr">→</span><span>A premium authority brand that reflects the real value of your expertise</span></div>
-        <div class="value-price">$2,000 value</div>
-      </div>
-      <div class="value-row">
-        <div class="value-item-text"><span class="arr">→</span><span>Crystal-clear positioning that differentiates you in your niche</span></div>
-        <div class="value-price">$1,500 value</div>
-      </div>
-      <div class="value-row">
-        <div class="value-item-text"><span class="arr">→</span><span>A repeatable, cinematic content system that removes creative friction</span></div>
-        <div class="value-price">$3,000 value</div>
-      </div>
-      <div class="value-row">
-        <div class="value-item-text"><span class="arr">→</span><span>Audience trust that converts attention into higher-quality clients</span></div>
-        <div class="value-price">$2,500 value</div>
-      </div>
-      <div class="value-row">
-        <div class="value-item-text"><span class="arr">→</span><span>A 7-day launch plan to announce your rebrand with momentum</span></div>
-        <div class="value-price">$1,000 value</div>
-      </div>
-      <div class="value-row">
-        <div class="value-item-text"><span class="arr">→</span><span>Confidence showing up online because your brand finally looks like it should</span></div>
-        <div class="value-price">$1,500 value</div>
-      </div>
-      <div class="value-row total-row">
-        <div class="value-total-label">Total Value</div>
-        <div class="value-total-amount">$11,500</div>
+    <div class="walkaway-box">
+      <div class="walkaway-heading">What You'll Walk Away With</div>
+      <div class="walkaway-list">
+        <div class="walkaway-item">
+          <svg class="walkaway-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+          <span>A premium personal brand that reflects the real value of your work</span>
+        </div>
+        <div class="walkaway-item">
+          <svg class="walkaway-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+          <span>Crystal-clear positioning that sets you apart in your niche</span>
+        </div>
+        <div class="walkaway-item">
+          <svg class="walkaway-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+          <span>A repeatable content system that removes creative friction for good</span>
+        </div>
+        <div class="walkaway-item">
+          <svg class="walkaway-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+          <span>Audience trust that turns attention into higher-quality clients</span>
+        </div>
+        <div class="walkaway-item">
+          <svg class="walkaway-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+          <span>A 7-day brand launch plan built for real momentum</span>
+        </div>
+        <div class="walkaway-item">
+          <svg class="walkaway-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+          <span>The confidence to show up consistently and look the part</span>
+        </div>
       </div>
     </div>
   </section>
@@ -1234,8 +1212,11 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
 
     <!-- GUARANTEE — below pricing -->
     <div class="guarantee-box">
-      <div class="guar-headline">Do the work.<br>Get the result.<br><span style="color:var(--orange)">Or your money back.</span></div>
-      <div class="guarantee-label">The Brand Launch Guarantee</div>
+      <div class="guarantee-label">
+        <svg class="guarantee-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        The Brand Launch Guarantee
+      </div>
+      <div class="guar-headline">Do the work. Get the result.<br><span style="color:#4ade80">Or your money back.</span></div>
       <div class="guarantee-body">Complete the Brand Launch Checklist™ in full. If you don't feel confident launching your Premium Personal Brand and content system after completing it, submit your checklist and receive a full refund. No questions asked.</div>
     </div>
 
