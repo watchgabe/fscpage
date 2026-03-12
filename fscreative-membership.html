@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FSCreative™ Membership — Build a Premium Personal Brand</title>
+<meta property="og:title" content="FSCreative™ Membership — Build a Premium Personal Brand">
+<meta property="og:description" content="Install the Brand Launch Checklist™ and go from scattered to premium. Cinematic content system, clear positioning, weekly coaching.">
+<meta property="og:type" content="website">
+
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ─── RESET ─── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* ─── DARK TOKENS (default) ─── */
+:root {
+  --bg:       #0a0a0a;
+  --surface:  #111111;
+  --card:     #161616;
+  --border:   #1f1f1f;
+  --border2:  #2a2a2a;
+  --orange:   #F0601B;
+  --orange2:  #ff6d28;
+  --text:     #ffffff;
+  --dim:      #a0a0a0;
+  --dimmer:   #555555;
+  --green:    #3ecf6e;
+  --max:      1160px;
+  --nav-bg:   rgba(10,10,10,0.92);
+}
+
+/* ─── LIGHT TOKENS ─── */
+body.light {
+  --bg:       #f7f6f4;
+  --surface:  #edecea;
+  --card:     #e2e0dc;
+  --border:   #ccc9c2;
+  --border2:  #b8b4ac;
+  --text:     #0a0a0a;
+  --dim:      #404040;
+  --dimmer:   #888888;
+  --green:    #1a7a3a;
+  --nav-bg:   rgba(247,246,244,0.92);
+}
+
+/* ─── BASE ─── */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background 0.25s, color 0.25s;
+}
+
+/* grain overlay */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 9998; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='0.04'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ─── NAV ─── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  border-bottom: 1px solid var(--border);
+  background: var(--nav-bg);
+  backdrop-filter: blur(16px);
+  transition: background 0.25s, border-color 0.25s;
+}
+.nav-inner {
+  max-width: var(--max); margin: 0 auto; padding: 0 32px;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+}
+.nav-logo-text {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 18px; font-weight: 700; letter-spacing: 0.5px;
+  color: var(--text); transition: color 0.25s;
+}
+.nav-right {
+  display: flex; align-items: center; gap: 10px;
+}
+
+/* theme toggle */
+.theme-toggle {
+  width: 36px; height: 36px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface); border: 1px solid var(--border2);
+  border-radius: 6px; cursor: pointer; color: var(--dim);
+  transition: all 0.2s;
+}
+.theme-toggle:hover { border-color: var(--orange); color: var(--orange); }
+.icon-moon { display: block; }
+.icon-sun  { display: none; }
+body.light .icon-moon { display: none; }
+body.light .icon-sun  { display: block; }
+
+/* ─── BUTTONS ─── */
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 2px;
+  background: var(--orange); color: #fff;
+  border: none; border-radius: 4px;
+  padding: 12px 22px; cursor: pointer;
+  transition: background 0.18s, transform 0.18s;
+  white-space: nowrap; flex-shrink: 0;
+}
+.btn-primary:hover { background: var(--orange2); transform: translateY(-1px); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 2px;
+  background: transparent; color: var(--text);
+  border: 1px solid var(--border2);
+  border-radius: 4px; padding: 11px 22px; cursor: pointer;
+  transition: border-color 0.18s, color 0.18s;
+  white-space: nowrap; flex-shrink: 0;
+}
+.btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+
+/* ─── URGENCY BAR ─── */
+.urgency-bar {
+  background: var(--orange);
+  padding: 10px 20px;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+}
+.urgency-bar p {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 2px; color: #fff;
+  text-align: center;
+}
+.bar-mobile { display: none; }
+.bar-desktop { display: inline; }
+.urgency-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #fff; opacity: 0.7; flex-shrink: 0;
+  animation: blink 1.4s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:.7} 50%{opacity:.2} }
+
+/* ─── NEXT LIVE CLASS COUNTDOWN ─── */
+.next-class-timer {
+  display: inline-flex; align-items: center; gap: 14px;
+  background: var(--surface); border: 1px solid var(--border2);
+  border-radius: 8px; padding: 9px 16px;
+  transition: background 0.25s, border-color 0.25s;
+}
+.nct-label {
+  display: flex; align-items: center; gap: 7px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 3px;
+  color: var(--dimmer); white-space: nowrap;
+  transition: color 0.25s;
+}
+.nct-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #ff3b3b; flex-shrink: 0;
+  animation: blink 1.4s ease-in-out infinite;
+}
+.nct-countdown {
+  display: flex; align-items: center; gap: 3px;
+}
+.nct-unit {
+  display: flex; flex-direction: column; align-items: center; min-width: 34px;
+}
+.nct-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 24px; font-weight: 900; letter-spacing: 1px;
+  color: var(--text); line-height: 1;
+  transition: color 0.25s;
+}
+.nct-sub {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+  color: var(--dimmer); margin-top: 2px;
+  transition: color 0.25s;
+}
+.nct-sep {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 900;
+  color: var(--dimmer); padding-bottom: 14px; padding-left: 1px; padding-right: 1px;
+  transition: color 0.25s;
+}
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  width: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 80px 24px;
+  border-bottom: 1px solid var(--border);
+  position: relative; overflow: hidden;
+  transition: border-color 0.25s;
+}
+.hero-inner {
+  width: 100%; max-width: 880px;
+  display: flex; flex-direction: column; align-items: center;
+  position: relative; z-index: 1;
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(240,96,27,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-social-proof {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 16px;
+  margin-bottom: 40px;
+}
+.social-proof-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 3px; color: var(--dimmer);
+  transition: color 0.25s;
+}
+
+.hero h1 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  font-size: clamp(52px, 7.2vw, 93px);
+  text-transform: uppercase;
+  letter-spacing: -2px; line-height: 0.92;
+  color: var(--text); max-width: 880px;
+  margin: 0 auto 28px;
+  transition: color 0.25s;
+}
+.hero h1 .o { color: var(--orange); }
+
+.hero-sub {
+  font-size: 18px; font-weight: 500; color: var(--dim);
+  max-width: 560px; margin: 0 auto 44px; line-height: 1.65;
+  transition: color 0.25s;
+}
+.hero-sub strong { color: var(--text); font-weight: 700; }
+
+.hero-cta-group {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 10px; margin-bottom: 20px;
+  width: 100%; max-width: 560px;
+}
+.hero-micro { font-size: 13px; color: var(--dimmer); letter-spacing: 0.5px; transition: color 0.25s; }
+
+/* ─── VIDEO ─── */
+.video-section {
+  width: 100%; background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.25s, border-color 0.25s;
+}
+.video-wrap {
+  max-width: var(--max); margin: 0 auto; padding: 64px 32px;
+}
+.video-container {
+  position: relative; padding-bottom: 56.25%;
+  height: 0; overflow: hidden;
+  border-radius: 8px; border: 1px solid var(--border); background: #000;
+}
+.video-container iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
+}
+
+/* ─── WRAP ─── */
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
+
+/* ─── SECTION ─── */
+.section {
+  padding: 88px 0; border-bottom: 1px solid var(--border);
+  transition: border-color 0.25s;
+}
+.section-header { margin-bottom: 56px; }
+.eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 4px;
+  color: var(--dimmer); margin-bottom: 12px;
+  transition: color 0.25s;
+}
+.section h2 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 900; font-size: clamp(38px, 5vw, 68px);
+  text-transform: uppercase; letter-spacing: -1px; line-height: 0.95;
+  color: var(--text); transition: color 0.25s;
+}
+.section h2 .o { color: var(--orange); }
+
+/* ─── CONTRAST GRID ─── */
+.contrast-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2px; border: 1px solid var(--border);
+  border-radius: 6px; overflow: hidden;
+  transition: border-color 0.25s;
+}
+.contrast-col { padding: 36px 32px; background: var(--surface); transition: background 0.25s; }
+.contrast-col.right { background: var(--card); }
+.contrast-col-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 4px; margin-bottom: 24px;
+}
+.contrast-col-label.bad  { color: var(--dimmer); }
+.contrast-col-label.good { color: var(--orange); }
+.check-list { display: flex; flex-direction: column; gap: 12px; }
+.check-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: var(--dim); line-height: 1.5;
+  transition: color 0.25s;
+}
+.check-icon { font-size: 13px; font-weight: 900; flex-shrink: 0; margin-top: 1px; }
+.check-icon.x  { color: var(--dimmer); }
+.check-icon.ok { color: var(--green); }
+
+/* ─── WHAT'S INSIDE — numbered text layout ─── */
+.inside-list { display: flex; flex-direction: column; }
+.inside-item {
+  display: grid; grid-template-columns: 56px 1fr;
+  gap: 28px; padding: 40px 0;
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.25s;
+}
+.inside-item:first-child { border-top: 1px solid var(--border); }
+.inside-item:last-child { border-bottom: none; }
+.inside-content { max-width: 700px; }
+.inside-num {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 3px;
+  color: var(--orange); padding-top: 4px;
+}
+.inside-label {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 20px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.3px;
+  color: var(--text); margin-bottom: 10px;
+  transition: color 0.25s;
+}
+.inside-body {
+  font-size: 14px; color: var(--dim); line-height: 1.75;
+  transition: color 0.25s;
+}
+.arrow-list { display: flex; flex-direction: column; gap: 6px; margin-top: 14px; }
+.arrow-item {
+  font-size: 14px; color: var(--dim); line-height: 1.5;
+  display: flex; gap: 10px; align-items: flex-start;
+  transition: color 0.25s;
+}
+.arrow-item .arr { color: var(--orange); flex-shrink: 0; font-weight: 700; }
+
+/* ─── PHASES ─── */
+.phases { display: flex; flex-direction: column; }
+.phase-item {
+  display: flex; gap: 32px; align-items: flex-start;
+  padding: 36px 0; border-bottom: 1px solid var(--border);
+  transition: border-color 0.25s;
+}
+.phase-item:last-child { border-bottom: none; }
+.phase-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 2px;
+  color: var(--orange); min-width: 64px; margin-top: 4px;
+}
+.phase-tag {
+  display: inline-block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 2px;
+  color: var(--orange); background: rgba(240,96,27,0.08);
+  border: 1px solid rgba(240,96,27,0.2);
+  border-radius: 3px; padding: 3px 9px; margin-bottom: 10px;
+}
+.phase-title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 20px; font-weight: 800;
+  text-transform: uppercase; color: var(--text); margin-bottom: 8px;
+  transition: color 0.25s;
+}
+.phase-desc { font-size: 15px; color: var(--dim); line-height: 1.7; transition: color 0.25s; }
+
+/* ─── OUTCOMES ─── */
+.outcomes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.outcome-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 20px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 4px;
+  transition: background 0.25s, border-color 0.25s;
+}
+.outcome-arrow { font-size: 18px; color: var(--orange); flex-shrink: 0; font-weight: 700; margin-top: -1px; }
+.outcome-text { font-size: 14px; color: var(--dim); line-height: 1.5; transition: color 0.25s; }
+
+/* ─── WHO ─── */
+.who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.who-col { background: var(--surface); border: 1px solid var(--border); padding: 36px 32px; transition: background 0.25s, border-color 0.25s; }
+.who-col-label {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px; font-weight: 900; text-transform: uppercase; margin-bottom: 24px;
+}
+.who-col-label.yes { color: var(--orange); }
+.who-col-label.no  { color: var(--dimmer); }
+.who-list { display: flex; flex-direction: column; gap: 12px; }
+.who-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--dim); line-height: 1.5; transition: color 0.25s; }
+.who-icon { font-size: 13px; font-weight: 900; flex-shrink: 0; margin-top: 1px; }
+.who-icon.yes { color: var(--green); }
+.who-icon.no  { color: var(--dimmer); }
+
+/* ─── GUARANTEE ─── */
+.guarantee-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 6px; padding: 48px 40px;
+  display: flex; flex-direction: column; gap: 16px;
+  position: relative; overflow: hidden;
+  transition: background 0.25s, border-color 0.25s;
+}
+.guarantee-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--orange); }
+.guarantee-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; color: var(--orange);
+}
+.guarantee-headline {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(28px, 4vw, 46px); font-weight: 900;
+  text-transform: uppercase; line-height: 1; color: var(--text);
+  transition: color 0.25s;
+}
+.guarantee-headline .o { color: var(--orange); }
+.guarantee-body { font-size: 15px; color: var(--dim); line-height: 1.7; max-width: 640px; transition: color 0.25s; }
+
+/* ─── PRICING ─── */
+.pricing-box { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; transition: background 0.25s, border-color 0.25s; }
+.pricing-top { padding: 48px 40px; border-bottom: 1px solid var(--border); position: relative; transition: border-color 0.25s; }
+.pricing-top::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--orange); }
+.founding-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 3px;
+  color: var(--orange); background: rgba(240,96,27,0.1);
+  border: 1px solid rgba(240,96,27,0.25); border-radius: 3px; padding: 5px 12px; margin-bottom: 24px;
+}
+.price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+.price-amount {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 80px; font-weight: 900; line-height: 1; letter-spacing: -3px; color: var(--text);
+  transition: color 0.25s;
+}
+.price-was {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 36px; font-weight: 700; color: var(--dimmer); text-decoration: line-through;
+}
+.price-per { font-size: 15px; font-weight: 600; color: var(--dim); transition: color 0.25s; }
+.price-note { font-size: 14px; color: var(--dim); margin-bottom: 24px; transition: color 0.25s; }
+.price-note strong { color: var(--text); }
+
+/* 20-spot progress bar */
+.spots-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.spots-label { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--dim); transition: color 0.25s; }
+.spots-count { color: var(--orange); }
+.live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); animation: blink 1.4s infinite; flex-shrink: 0; }
+.spots-track { display: flex; flex-wrap: wrap; gap: 3px; margin-bottom: 32px; }
+.spot-seg { height: 6px; border-radius: 2px; flex: 1; min-width: 24px; }
+.spot-seg.taken { background: var(--orange); }
+.spot-seg.open  { background: var(--border2); }
+
+.pricing-includes { padding: 32px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; transition: border-color 0.25s; }
+.include-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--dim); transition: color 0.25s; }
+.include-item::before { content: '✓'; color: var(--green); font-weight: 700; font-size: 13px; flex-shrink: 0; }
+
+/* ─── 30-DAY ROADMAP ─── */
+.roadmap { display: flex; flex-direction: column; gap: 12px; position: relative; }
+.roadmap::before {
+  content: ''; position: absolute;
+  left: 20px; top: 0; bottom: 0; width: 2px;
+  background: var(--border2); z-index: 0;
+}
+.roadmap-item { display: flex; gap: 20px; align-items: flex-start; position: relative; }
+.roadmap-bubble {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--orange); color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px; font-weight: 900; letter-spacing: 0.5px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; position: relative; z-index: 1; margin-top: 2px;
+}
+.roadmap-card {
+  flex: 1; border: 1px solid var(--border); border-radius: 10px;
+  overflow: hidden; transition: border-color 0.25s;
+}
+.roadmap-card:hover { border-color: var(--border2); }
+.roadmap-header {
+  display: flex; flex-direction: column;
+  padding: 18px 22px; cursor: pointer; user-select: none; gap: 6px;
+}
+.roadmap-header-top {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.roadmap-title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px; font-weight: 800; color: var(--text); transition: color 0.25s;
+}
+.roadmap-desc {
+  font-size: 13px; color: var(--dim); line-height: 1.55; transition: color 0.25s;
+}
+.roadmap-chevron {
+  width: 18px; height: 18px; flex-shrink: 0; color: var(--dimmer);
+  transition: transform 0.25s, color 0.25s;
+}
+.roadmap-card.rm-open { background: var(--card); border-color: var(--border2); }
+.roadmap-card.rm-open .roadmap-title { color: var(--orange); }
+.roadmap-card.rm-open .roadmap-chevron { transform: rotate(180deg); color: var(--orange); }
+.roadmap-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.25s ease;
+  padding: 0 22px; border-top: 0px solid var(--border);
+}
+.roadmap-card.rm-open .roadmap-body {
+  max-height: 600px; padding: 16px 22px 20px;
+  border-top: 1px solid var(--border);
+}
+.roadmap-steps { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.roadmap-steps li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: var(--dim); line-height: 1.5; transition: color 0.25s;
+}
+.roadmap-steps li::before { content: '→'; color: var(--orange); flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+
+/* ─── FAQ — accordion ─── */
+.faq-list { display: flex; flex-direction: column; }
+.faq-item { padding: 22px 0; border-bottom: 1px solid var(--border); transition: border-color 0.25s; cursor: pointer; }
+.faq-item:first-child { border-top: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px; font-weight: 800; text-transform: uppercase; color: var(--text);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  transition: color 0.25s; user-select: none;
+}
+.faq-item.faq-open .faq-q { color: var(--orange); }
+.faq-chevron {
+  width: 16px; height: 16px; flex-shrink: 0; color: var(--dimmer);
+  transition: transform 0.25s, color 0.25s;
+}
+.faq-item.faq-open .faq-chevron { transform: rotate(180deg); color: var(--orange); }
+.faq-a {
+  font-size: 14px; color: var(--dim); line-height: 1.7;
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.25s ease;
+  padding: 0;
+}
+.faq-item.faq-open .faq-a { max-height: 400px; padding-top: 12px; }
+
+/* ─── ABOUT ─── */
+.about-inner { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: flex-start; }
+.about-avatar {
+  width: 88px; height: 88px; border-radius: 50%;
+  background: var(--card); border: 2px solid var(--border2);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 28px; font-weight: 900; color: var(--orange); flex-shrink: 0;
+  transition: background 0.25s, border-color 0.25s;
+}
+.about-name { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 26px; font-weight: 900; text-transform: uppercase; color: var(--text); margin-bottom: 4px; transition: color 0.25s; }
+.about-handle { font-size: 13px; color: var(--dimmer); margin-bottom: 20px; transition: color 0.25s; }
+.about-body { font-size: 15px; color: var(--dim); line-height: 1.75; transition: color 0.25s; }
+.about-body p + p { margin-top: 14px; }
+
+/* ─── FINAL CTA ─── */
+.final-section { padding: 100px 24px; text-align: center; position: relative; overflow: hidden; }
+.final-section::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(240,96,27,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.final-headline {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 900; font-size: clamp(44px, 7vw, 88px);
+  text-transform: uppercase; letter-spacing: -2px;
+  line-height: 0.93; color: var(--text); margin-bottom: 24px;
+  transition: color 0.25s;
+}
+.final-headline .o { color: var(--orange); }
+.final-sub { font-size: 17px; color: var(--dim); max-width: 460px; margin: 0 auto 40px; line-height: 1.65; transition: color 0.25s; }
+.final-cta-wrap { display: flex; justify-content: center; }
+.final-micro { font-size: 13px; color: var(--dimmer); margin-top: 14px; transition: color 0.25s; }
+
+/* ─── FOOTER ─── */
+footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: border-color 0.25s; }
+.footer-inner { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.footer-copy { font-size: 12px; color: var(--dimmer); transition: color 0.25s; }
+.footer-link { font-size: 12px; color: var(--dimmer); transition: color 0.15s; }
+.footer-link:hover { color: var(--orange); }
+
+/* ─── ANIMATION ─── */
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+.hero { animation: fadeUp 0.6s ease both; }
+
+/* ─── RESPONSIVE ─── */
+@media(max-width: 768px) {
+  .wrap { padding: 0 16px; }
+  .video-wrap { padding: 36px 16px; }
+  .nav-inner { padding: 0 16px; gap: 8px; }
+  .nav-logo-text { font-size: 16px; }
+
+  /* Buttons: smaller on mobile, never overflow */
+  .btn-primary { font-size: 12px; padding: 10px 16px; letter-spacing: 1px; }
+  .btn-outline  { font-size: 12px; padding: 9px 16px;  letter-spacing: 1px; }
+  .hero-cta-group { max-width: 100%; }
+
+  .hero { padding: 60px 16px; min-height: 100svh; }
+  .hero h1 { letter-spacing: -1px; }
+
+  /* Hide social proof tagline on mobile, keep countdown */
+  .social-proof-text { display: none; }
+  .nct-label span:last-child { display: none; } /* hide "Next Live Class" text on tiny screens, keep dot */
+
+  /* Urgency bar: shorter text + smaller size on mobile */
+  .bar-desktop { display: none; }
+  .bar-mobile { display: inline; }
+  .urgency-bar p { font-size: 11px; letter-spacing: 1.5px; }
+
+  .section { padding: 56px 0; }
+  .section-header { margin-bottom: 36px; }
+  .contrast-grid,
+  .who-grid,
+  .pricing-includes,
+  .outcomes-grid { grid-template-columns: 1fr; }
+  .inside-item { grid-template-columns: 40px 1fr; gap: 16px; padding: 32px 0; }
+  .about-inner { grid-template-columns: 1fr; }
+  .guarantee-box { padding: 32px 24px; }
+  .pricing-top { padding: 32px 24px; }
+  .pricing-includes { padding: 24px 24px; }
+  footer { padding: 20px 16px; }
+  .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
+
+  /* Final CTA buttons on mobile */
+  .final-section { padding: 72px 16px; }
+  .final-cta-wrap .btn-primary { font-size: 13px; padding: 12px 20px; }
+
+  /* Pricing CTA: full width, wraps cleanly on mobile */
+  .pricing-top .btn-primary {
+    width: 100%; font-size: 13px; padding: 13px 16px;
+    letter-spacing: 1px; white-space: normal; text-align: center;
+  }
+
+  /* Spots bar: fixed 10×10 dots, all 20 fit in one row */
+  .spot-seg {
+    flex: none; width: 10px; height: 10px; min-width: 10px; border-radius: 3px;
+  }
+  .spots-track { gap: 3px; flex-wrap: nowrap; }
+
+  /* Countdown: tighten on mobile */
+  .next-class-timer { gap: 10px; padding: 8px 12px; }
+  .nct-num { font-size: 20px; }
+  .nct-unit { min-width: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="https://fscreative.live" class="nav-logo">
+      <img src="FSC Orange White no TM@4x.png" height="15" alt="FSCreative" style="display:block;">
+    </a>
+
+    <div class="nav-right">
+      <!-- Theme toggle -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+        <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+        </svg>
+        <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+
+      <a href="https://fscreative.circle.so/checkout/founding-member">
+        <button class="btn-primary">Join Now — $99/mo</button>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- URGENCY BAR -->
+<div class="urgency-bar">
+  <div class="urgency-dot"></div>
+  <p><span class="bar-desktop">Founding Member Pricing — 20 Spots Total — Price Increases When Full</span><span class="bar-mobile">20 seats available at this price</span></p>
+  <div class="urgency-dot"></div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-social-proof">
+      <div class="next-class-timer">
+        <div class="nct-label">
+          <span class="nct-dot"></span>
+          <span>Next Live Class</span>
+        </div>
+        <div class="nct-countdown">
+          <div class="nct-unit"><span class="nct-num" id="cd-days">--</span><span class="nct-sub">Days</span></div>
+          <div class="nct-sep">:</div>
+          <div class="nct-unit"><span class="nct-num" id="cd-hours">--</span><span class="nct-sub">Hours</span></div>
+          <div class="nct-sep">:</div>
+          <div class="nct-unit"><span class="nct-num" id="cd-mins">--</span><span class="nct-sub">Mins</span></div>
+          <div class="nct-sep">:</div>
+          <div class="nct-unit"><span class="nct-num" id="cd-secs">--</span><span class="nct-sub">Secs</span></div>
+        </div>
+      </div>
+      <span class="social-proof-text">For Creators Who Sell Something Real</span>
+    </div>
+
+    <h1>Build &amp; Launch<br>A <span class="o">Premium</span><br>Personal Brand.</h1>
+
+    <p class="hero-sub">
+      Your skills are real — but your brand still <strong>looks smaller than the value you deliver.</strong> FSCreative™ installs the system to fix that.
+    </p>
+
+    <div class="hero-cta-group">
+      <a href="https://fscreative.circle.so/checkout/founding-member">
+        <button class="btn-primary">Start Building My Brand →</button>
+      </a>
+      <a href="#how-it-works">
+        <button class="btn-outline">See How It Works</button>
+      </a>
+    </div>
+    <p class="hero-micro">$99/month · Cancel anytime · Founding member rate locked in</p>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<div class="video-section">
+  <div class="video-wrap">
+    <div class="video-container">
+      <iframe
+        src="https://www.youtube.com/embed/CbJzynAAzco?rel=0&modestbranding=1"
+        title="FSCreative™ — Build a Premium Personal Brand"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- THE PROBLEM -->
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">The Problem</div>
+      <h2>Your brand<br>is <span class="o">working against</span> you.</h2>
+    </div>
+
+    <div class="contrast-grid">
+      <div class="contrast-col">
+        <div class="contrast-col-label bad">Without FSCreative™</div>
+        <div class="check-list">
+          <div class="check-item"><span class="check-icon x">✕</span> Your brand doesn't reflect the quality of your work</div>
+          <div class="check-item"><span class="check-icon x">✕</span> Content feels inconsistent — no real system behind it</div>
+          <div class="check-item"><span class="check-icon x">✕</span> Hours spent making content with no clear positioning</div>
+          <div class="check-item"><span class="check-icon x">✕</span> Less experienced creators get better opportunities because they look more premium</div>
+          <div class="check-item"><span class="check-icon x">✕</span> You know you're leaving money on the table but don't know how to fix it</div>
+        </div>
+      </div>
+      <div class="contrast-col right">
+        <div class="contrast-col-label good">With FSCreative™</div>
+        <div class="check-list">
+          <div class="check-item"><span class="check-icon ok">✓</span> A premium brand that reflects the real value of your expertise</div>
+          <div class="check-item"><span class="check-icon ok">✓</span> Clear positioning that differentiates you in your niche</div>
+          <div class="check-item"><span class="check-icon ok">✓</span> A repeatable cinematic content system — no more creative friction</div>
+          <div class="check-item"><span class="check-icon ok">✓</span> Audience trust that converts attention into higher-quality clients</div>
+          <div class="check-item"><span class="check-icon ok">✓</span> Confidence showing up online because your brand finally looks like it should</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INSIDE -->
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">What's Inside</div>
+      <h2>Everything you need<br>to go <span class="o">premium.</span></h2>
+    </div>
+
+    <div class="inside-list">
+
+      <div class="inside-item">
+        <div class="inside-num">01</div>
+        <div class="inside-content">
+          <div class="inside-label">Brand Launch Checklist™</div>
+          <div class="inside-body">The Brand Launch Checklist™ is the core framework inside FSCreative. It walks you step-by-step through building a premium personal brand and a repeatable content system. Inside the checklist you will:</div>
+          <div class="arrow-list">
+            <div class="arrow-item"><span class="arr">→</span> Build your brand foundation and positioning</div>
+            <div class="arrow-item"><span class="arr">→</span> Develop your visual identity and aesthetic</div>
+            <div class="arrow-item"><span class="arr">→</span> Install your Creator OS™ content system</div>
+            <div class="arrow-item"><span class="arr">→</span> Set up your audience capture funnel</div>
+            <div class="arrow-item"><span class="arr">→</span> Launch your brand with a clear growth strategy</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="inside-item">
+        <div class="inside-num">02</div>
+        <div class="inside-content">
+          <div class="inside-label">Monthly Masterclass</div>
+          <div class="inside-body">Each month we go deeper into the skills that elevate a creator from amateur to authority. These sessions focus on the strategic and creative skills that make a brand stand out and grow faster. We'll explore topics like:</div>
+          <div class="arrow-list">
+            <div class="arrow-item"><span class="arr">→</span> Personal brand strategy</div>
+            <div class="arrow-item"><span class="arr">→</span> Cinematic content creation</div>
+            <div class="arrow-item"><span class="arr">→</span> Storytelling and audience trust</div>
+            <div class="arrow-item"><span class="arr">→</span> AI tools for creators</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="inside-item">
+        <div class="inside-num">03</div>
+        <div class="inside-content">
+          <div class="inside-label">Mentorship</div>
+          <div class="inside-body">Every week we'll go live to answer questions, review progress, and solve challenges. These calls give you direct access to guidance, feedback, and strategy as you build your brand.</div>
+          <div class="arrow-list">
+            <div class="arrow-item"><span class="arr">→</span> Weekly Ask Gabe coaching calls</div>
+            <div class="arrow-item"><span class="arr">→</span> Live Q&amp;A and problem solving</div>
+            <div class="arrow-item"><span class="arr">→</span> Feedback on brand positioning and content</div>
+            <div class="arrow-item"><span class="arr">→</span> Strategy discussions with other creators</div>
+            <div class="arrow-item"><span class="arr">→</span> Support as you implement the checklist</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 30-DAY TRANSFORMATION -->
+  <section class="section" id="roadmap">
+    <div class="section-header">
+      <div class="eyebrow">The Checklist</div>
+      <h2>Your 30-Day<br><span class="o">Transformation.</span></h2>
+    </div>
+
+    <div class="roadmap">
+
+      <div class="roadmap-item">
+        <div class="roadmap-bubble">01</div>
+        <div class="roadmap-card rm-open">
+          <div class="roadmap-header">
+            <div class="roadmap-header-top">
+              <div class="roadmap-title">Creator Foundation</div>
+              <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="roadmap-desc">Define the strategic foundation of your personal brand by clarifying your audience, mission, values, story, and the core topics your content will consistently revolve around.</div>
+          </div>
+          <div class="roadmap-body">
+            <ul class="roadmap-steps">
+              <li>Define Your Avatar</li>
+              <li>Core Mission + Ikigai</li>
+              <li>Your Core Values</li>
+              <li>Content Pillars</li>
+              <li>Map Your Origin Story</li>
+              <li>Brand Mission</li>
+              <li>Conduct Brand Audit</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-item">
+        <div class="roadmap-bubble">02</div>
+        <div class="roadmap-card">
+          <div class="roadmap-header">
+            <div class="roadmap-header-top">
+              <div class="roadmap-title">Visual Identity</div>
+              <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="roadmap-desc">Design a clear and recognizable visual identity for your brand by defining your aesthetic, creative direction, style system, and visual standards.</div>
+          </div>
+          <div class="roadmap-body">
+            <ul class="roadmap-steps">
+              <li>Creator Moodboard</li>
+              <li>Define Color Palette &amp; Typography</li>
+              <li>Define Visual World</li>
+              <li>Creator Analysis</li>
+              <li>Shot System Blueprint</li>
+              <li>Craft Your Styleguide</li>
+              <li>Content Approach</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-item">
+        <div class="roadmap-bubble">03</div>
+        <div class="roadmap-card">
+          <div class="roadmap-header">
+            <div class="roadmap-header-top">
+              <div class="roadmap-title">Full Stack OS</div>
+              <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="roadmap-desc">Build a repeatable content system that helps you consistently generate ideas, script, shoot, edit, and publish high-quality content efficiently.</div>
+          </div>
+          <div class="roadmap-body">
+            <ul class="roadmap-steps">
+              <li>Set Up Your Content System</li>
+              <li>Idea Generation</li>
+              <li>Scripting / Storytelling</li>
+              <li>Create Batching Schedule &amp; Workflow</li>
+              <li>Graphic Design</li>
+              <li>Technical Setup</li>
+              <li>Edit Your Content</li>
+              <li>Finding Editing Rhythm</li>
+              <li>Bonus: Creator Confidence Workshop</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-item">
+        <div class="roadmap-bubble">04</div>
+        <div class="roadmap-card">
+          <div class="roadmap-header">
+            <div class="roadmap-header-top">
+              <div class="roadmap-title">Automated Funnel</div>
+              <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="roadmap-desc">Set up the infrastructure that captures attention, turns followers into subscribers, and moves people toward your offers through automated systems.</div>
+          </div>
+          <div class="roadmap-body">
+            <ul class="roadmap-steps">
+              <li>Automated Sales Funnel</li>
+              <li>Manychat Overview</li>
+              <li>Setup Your Newsletter</li>
+              <li>Lead Magnet Creation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-item">
+        <div class="roadmap-bubble">05</div>
+        <div class="roadmap-card">
+          <div class="roadmap-header">
+            <div class="roadmap-header-top">
+              <div class="roadmap-title">Launch</div>
+              <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="roadmap-desc">Execute a focused brand launch by optimizing your profile, publishing strategic content, and building momentum for the next 90 days.</div>
+          </div>
+          <div class="roadmap-body">
+            <ul class="roadmap-steps">
+              <li>Optimize Your Bio</li>
+              <li>Create Brand Launch Content</li>
+              <li>Build 7-Day Launch Calendar</li>
+              <li>Set 90-Day Goals</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OUTCOMES -->
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">The Transformation</div>
+      <h2>What you'll<br><span class="o">walk away with.</span></h2>
+    </div>
+
+    <div class="outcomes-grid">
+      <div class="outcome-item"><span class="outcome-arrow">→</span><span class="outcome-text">A premium authority brand that reflects the real value of your expertise</span></div>
+      <div class="outcome-item"><span class="outcome-arrow">→</span><span class="outcome-text">Crystal-clear positioning that differentiates you in your niche</span></div>
+      <div class="outcome-item"><span class="outcome-arrow">→</span><span class="outcome-text">A repeatable, cinematic content system that removes creative friction</span></div>
+      <div class="outcome-item"><span class="outcome-arrow">→</span><span class="outcome-text">Audience trust that converts attention into higher-quality clients</span></div>
+      <div class="outcome-item"><span class="outcome-arrow">→</span><span class="outcome-text">A 7-day launch plan to announce your rebrand with momentum</span></div>
+      <div class="outcome-item"><span class="outcome-arrow">→</span><span class="outcome-text">Confidence showing up online because your brand finally looks like it should</span></div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">Fit Check</div>
+      <h2>Is this<br><span class="o">for you?</span></h2>
+    </div>
+
+    <div class="who-grid">
+      <div class="who-col">
+        <div class="who-col-label yes">This Is for You If →</div>
+        <div class="who-list">
+          <div class="who-item"><span class="who-icon yes">✓</span> You already sell a product, service, or offer — but your brand doesn't reflect the level of your work</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You've invested real time into content but the results don't match the effort</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You know your skills are strong, yet other creators with weaker work appear more established</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You want a clear system for turning ideas into high-quality content consistently</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You believe trust and positioning matter more than chasing the algorithm</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You're actively building something and ready to approach it strategically</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You're willing to implement what you learn and install real systems</div>
+        </div>
+      </div>
+      <div class="who-col">
+        <div class="who-col-label no">This Is NOT for You If →</div>
+        <div class="who-list">
+          <div class="who-item"><span class="who-icon no">✕</span> Your primary goal is to go viral, chase views, or hack the algorithm</div>
+          <div class="who-item"><span class="who-icon no">✕</span> You're looking for shortcuts instead of building real brand authority</div>
+          <div class="who-item"><span class="who-icon no">✕</span> You're still in the "thinking about starting" stage rather than actively building</div>
+          <div class="who-item"><span class="who-icon no">✕</span> You want motivation or entertainment rather than structured implementation</div>
+          <div class="who-item"><span class="who-icon no">✕</span> You're not planning to take action on what's inside the program</div>
+          <div class="who-item"><span class="who-icon no">✕</span> Investing in your brand currently feels financially stressful or risky</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE -->
+  <section class="section">
+    <div class="guarantee-box">
+      <div class="guarantee-label">The Brand Launch Guarantee</div>
+      <div class="guarantee-headline">Do the work.<br>Get the result.<br><span class="o">Or your money back.</span></div>
+      <div class="guarantee-body">Complete the Brand Launch Checklist™ in full. If you don't feel confident launching your Premium Personal Brand and content system after completing it, submit your checklist and receive a full refund. No questions asked.</div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="pricing">
+    <div class="section-header">
+      <div class="eyebrow">Founding Member Pricing</div>
+      <h2>Join before<br>the price <span class="o">goes up.</span></h2>
+    </div>
+
+    <div class="pricing-box">
+      <div class="pricing-top">
+        <div class="founding-badge">
+          <span class="live-dot"></span>
+          Founding Member Access — 20 Spots Total
+        </div>
+
+        <div class="price-row">
+          <span class="price-amount">$99</span>
+          <div>
+            <div class="price-was">$199</div>
+            <div class="price-per">per month</div>
+          </div>
+        </div>
+
+        <p class="price-note">Founding member pricing is <strong>locked in for as long as you stay.</strong> Once all 20 spots are claimed, the price increases permanently.</p>
+
+        <div class="spots-label-row">
+          <div class="live-dot"></div>
+          <span class="spots-label"><span class="spots-count">18 of 20</span> founding spots remaining</span>
+        </div>
+        <div class="spots-track">
+          <span class="spot-seg taken"></span><span class="spot-seg taken"></span>
+          <span class="spot-seg open"></span><span class="spot-seg open"></span>
+          <span class="spot-seg open"></span><span class="spot-seg open"></span>
+          <span class="spot-seg open"></span><span class="spot-seg open"></span>
+          <span class="spot-seg open"></span><span class="spot-seg open"></span>
+          <span class="spot-seg open"></span><span class="spot-seg open"></span>
+          <span class="spot-seg open"></span><span class="spot-seg open"></span>
+          <span class="spot-seg open"></span><span class="spot-seg open"></span>
+          <span class="spot-seg open"></span><span class="spot-seg open"></span>
+          <span class="spot-seg open"></span>
+        </div>
+
+        <a href="https://fscreative.circle.so/checkout/founding-member">
+          <button class="btn-primary" style="font-size:15px;padding:15px 32px;">
+            Join FSCreative™ — Claim Your Spot →
+          </button>
+        </a>
+
+        <p style="font-size:13px;color:var(--dimmer);margin-top:14px;transition:color 0.25s;">
+          After joining you'll receive immediate access to the Brand Launch Checklist™ and community. Weekly call schedule and onboarding sent via email.
+        </p>
+      </div>
+
+      <div class="pricing-includes">
+        <div class="include-item">Brand Launch Checklist™ — all 30 steps</div>
+        <div class="include-item">Monthly Masterclasses + recordings</div>
+        <div class="include-item">Weekly Ask Gabe live coaching calls</div>
+        <div class="include-item">Private FSCreative community</div>
+        <div class="include-item">Creator OS™ frameworks</div>
+        <div class="include-item">Shot system blueprint</div>
+        <div class="include-item">Content planning templates</div>
+        <div class="include-item">Funnel &amp; launch strategy tools</div>
+        <div class="include-item">Brand Launch Guarantee</div>
+        <div class="include-item">Cancel any time</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">FAQ</div>
+      <h2>Questions<br><span class="o">answered.</span></h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Who exactly is this for? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Creators who are already selling something — coaching, courses, services, or products — but whose brand doesn't reflect the value they deliver. If your work is at a professional level but your online presence still looks like a hobby, this is for you.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What is the Brand Launch Checklist™? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">A 30-step guided system that walks you through your entire premium brand — from foundation and visual identity, to content system and launch strategy. Each step is sequenced so you always know exactly what to work on next. No guesswork.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How quickly will I see results? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Members who work through the checklist and engage with the weekly calls typically see clear brand clarity within the first 30 days. A full brand transformation — identity, content system, and launch — usually happens within 60–90 days of consistent implementation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if I'm just getting started — is this too advanced? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">The checklist guides you from the very beginning regardless of where you start. The earlier you build your brand the right way, the faster everything compounds. That said, you should already be actively building or selling something — this isn't for people still thinking about starting.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I cancel my membership? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes — cancel any time, no questions asked. You retain access through the end of your billing period. Founding member pricing is only locked in while you remain an active member.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How does the guarantee work? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Complete the Brand Launch Checklist™ in full. If you don't feel confident launching your Premium Personal Brand and content system after doing the work, submit your completed checklist and receive a full refund. Simple.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">When are the weekly calls and masterclasses? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Every Tuesday at 5:30 PM CST. All masterclass recordings are available for replay so you never miss a session even if your schedule conflicts.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="eyebrow" style="margin-bottom:40px">About</div>
+    <div class="about-inner">
+      <img class="about-avatar" src="458590589_1534654820461228_4076101104222827177_n.jpg" alt="Gabe" style="object-fit:cover;">
+      <div>
+        <div class="about-name">Hi, I'm Gabe.</div>
+        <div class="about-handle">Founder, FSCreative™ · @watch.gabe</div>
+        <div class="about-body">
+          <p>I built FSCreative™ because I kept watching talented creators get overlooked — not because their work wasn't good, but because their brand was working against them. A weak brand doesn't just hurt your aesthetics. It quietly costs you clients, partnerships, and opportunities every single day.</p>
+          <p>I've spent years studying what makes premium brands command attention, charge more, and build loyal audiences — and I built the Brand Launch Checklist™ to install that same system into your brand, step by step.</p>
+          <p>Inside FSCreative™, I work with you directly. You get my frameworks, my feedback, and my attention every week. This isn't a course you buy and forget. It's an implementation environment built to get you results.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /wrap -->
+
+<!-- FINAL CTA -->
+<section class="final-section">
+  <div class="final-headline">Your brand is either<br>building trust<br>or <span class="o">losing it.</span></div>
+  <p class="final-sub">Every day without a premium brand, you're leaving sales, credibility, and opportunities on the table. Join FSCreative™ and install the system today.</p>
+  <div class="final-cta-wrap">
+    <a href="https://fscreative.circle.so/checkout/founding-member">
+      <button class="btn-primary" style="font-size:15px;padding:15px 36px;">
+        Join FSCreative™ — $99/Month →
+      </button>
+    </a>
+  </div>
+  <p class="final-micro">Founding member rate · Cancel any time · Guaranteed or your money back</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">FSCreative™ — fscreative.live</span>
+    <a class="footer-link" href="https://fscreative.circle.so/checkout/founding-member">Join Now →</a>
+  </div>
+</footer>
+
+<script>
+  // ── ROADMAP ACCORDION ──
+  document.querySelectorAll('.roadmap-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const card = header.closest('.roadmap-card');
+      card.classList.toggle('rm-open');
+    });
+  });
+
+  // ── FAQ ACCORDION ──
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      item.classList.toggle('faq-open');
+    });
+  });
+
+  // ── THEME TOGGLE ──
+  const toggle = document.getElementById('themeToggle');
+  if (localStorage.getItem('fsc-theme') === 'light') document.body.classList.add('light');
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('light');
+    localStorage.setItem('fsc-theme', document.body.classList.contains('light') ? 'light' : 'dark');
+  });
+
+  // ── NEXT LIVE CLASS COUNTDOWN ──
+  // Every Tuesday at 5:30 PM CST (America/Chicago)
+  (function() {
+    function getChicagoOffsetMin(date) {
+      // Returns how many minutes Chicago is behind UTC (e.g. 360 for CST, 300 for CDT)
+      const utcH = date.getUTCHours();
+      const chH = parseInt(new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Chicago', hour: '2-digit', hour12: false
+      }).format(date));
+      return ((utcH - chH) + 24) % 24 * 60;
+    }
+
+    function getNextClass() {
+      const now = new Date();
+      const offMin = getChicagoOffsetMin(now);
+
+      // Express now in Chicago "wall clock" using UTC fields
+      const chNow = new Date(now.getTime() - offMin * 60000);
+      const dow = chNow.getUTCDay(); // 0=Sun 2=Tue
+      const chH = chNow.getUTCHours();
+      const chM = chNow.getUTCMinutes();
+
+      // Days until next Tuesday (0 = today if before 17:30)
+      let d = (2 - dow + 7) % 7;
+      if (d === 0 && chH * 60 + chM >= 17 * 60 + 30) d = 7;
+
+      // Target: that date at 17:30 in Chicago "UTC-offset" space
+      const targetCh = new Date(Date.UTC(
+        chNow.getUTCFullYear(), chNow.getUTCMonth(), chNow.getUTCDate() + d, 17, 30, 0
+      ));
+
+      // Re-derive offset at target date for DST safety
+      const approxUTC = new Date(targetCh.getTime() + offMin * 60000);
+      const offAtTarget = getChicagoOffsetMin(approxUTC);
+      return new Date(targetCh.getTime() + offAtTarget * 60000);
+    }
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function tick() {
+      const diff = getNextClass() - new Date();
+      if (diff <= 0) {
+        ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => document.getElementById(id).textContent = '00');
+        return;
+      }
+      const s = Math.floor(diff / 1000);
+      document.getElementById('cd-days').textContent  = pad(Math.floor(s / 86400));
+      document.getElementById('cd-hours').textContent = pad(Math.floor((s % 86400) / 3600));
+      document.getElementById('cd-mins').textContent  = pad(Math.floor((s % 3600) / 60));
+      document.getElementById('cd-secs').textContent  = pad(s % 60);
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>
+</body>
+</html>
