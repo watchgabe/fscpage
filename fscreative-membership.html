@@ -370,8 +370,8 @@ body.light .bar-guar-text { color: var(--dim); }
 .inside-list { display: flex; flex-direction: column; }
 .inside-item {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 56px; padding: 72px 0;
+  grid-template-columns: 56px 1fr;
+  gap: 32px; padding: 56px 0;
   border-bottom: 1px solid var(--border);
   align-items: start;
   transition: border-color 0.25s;
@@ -380,11 +380,11 @@ body.light .bar-guar-text { color: var(--dim); }
 .inside-item:last-child { border-bottom: none; }
 .inside-num {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(100px, 13vw, 160px);
-  font-weight: 300;
-  letter-spacing: -4px; line-height: 0.85;
-  color: var(--dimmer);
-  padding-top: 0;
+  font-size: 13px; font-weight: 800;
+  letter-spacing: 3px; text-transform: uppercase;
+  line-height: 1;
+  color: var(--orange);
+  padding-top: 6px;
   transition: color 0.25s;
 }
 /* Mobile-only num shown inside card-body */
@@ -455,16 +455,45 @@ body.light .bar-guar-text { color: var(--dim); }
 }
 .phase-desc { font-size: 15px; color: var(--dim); line-height: 1.7; transition: color 0.25s; }
 
-/* ─── OUTCOMES ─── */
-.outcomes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-.outcome-item {
-  display: flex; align-items: flex-start; gap: 12px;
-  padding: 20px; background: var(--surface);
-  border: 1px solid var(--border); border-radius: 4px;
-  transition: background 0.25s, border-color 0.25s;
+/* ─── OUTCOMES / VALUE LIST ─── */
+.value-list {
+  border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden;
+  transition: border-color 0.25s;
 }
-.outcome-arrow { font-size: 18px; color: var(--orange); flex-shrink: 0; font-weight: 700; margin-top: -1px; }
-.outcome-text { font-size: 14px; color: var(--dim); line-height: 1.5; transition: color 0.25s; }
+.value-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding: 16px 28px;
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.25s;
+}
+.value-row:last-child { border-bottom: none; }
+.value-row.total-row {
+  background: var(--surface);
+  padding: 20px 28px;
+  transition: background 0.25s;
+}
+.value-item-text {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 14px; color: var(--dim); line-height: 1.5; transition: color 0.25s;
+}
+.value-item-text .arr { color: var(--orange); flex-shrink: 0; font-weight: 700; margin-top: 1px; }
+.value-price {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px; font-weight: 800; letter-spacing: 1px;
+  color: var(--green); white-space: nowrap; flex-shrink: 0;
+  transition: color 0.25s;
+}
+.value-total-label {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--text); transition: color 0.25s;
+}
+.value-total-amount {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px; font-weight: 900; letter-spacing: 1px;
+  color: var(--orange); white-space: nowrap;
+}
 
 /* ─── WHO ─── */
 .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
@@ -485,20 +514,23 @@ body.light .bar-guar-text { color: var(--dim); }
 .guarantee-box {
   background: rgba(74,222,128,0.04);
   border: 1px solid rgba(74,222,128,0.18);
-  border-radius: 10px; padding: 24px 28px;
-  display: flex; flex-direction: row; gap: 16px; align-items: flex-start;
-  max-width: 580px; margin: 12px auto 0;
+  border-radius: 10px; padding: 36px 40px;
+  display: flex; flex-direction: column; gap: 10px; align-items: flex-start;
+  max-width: 460px; margin: 12px auto 0;
   transition: background 0.25s, border-color 0.25s;
 }
 body.light .guarantee-box {
   background: rgba(26,122,58,0.06);
   border-color: rgba(26,122,58,0.2);
 }
-.guarantee-icon {
-  flex-shrink: 0; color: #4ade80; margin-top: 1px;
+.guar-headline {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(52px, 6vw, 80px);
+  font-weight: 900; line-height: 0.92;
+  letter-spacing: -3px; text-transform: uppercase;
+  color: var(--text); margin-bottom: 8px;
+  transition: color 0.25s;
 }
-body.light .guarantee-icon { color: var(--green); }
-.guarantee-text { display: flex; flex-direction: column; gap: 6px; }
 .guarantee-label {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: #4ade80;
@@ -508,7 +540,7 @@ body.light .guarantee-label { color: var(--green); }
 .guarantee-body strong { color: var(--text); }
 
 /* ─── PRICING ─── */
-.pricing-box { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; max-width: 580px; margin: 0 auto; transition: background 0.25s, border-color 0.25s; }
+.pricing-box { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; max-width: 460px; margin: 0 auto; transition: background 0.25s, border-color 0.25s; }
 .pricing-top { padding: 48px 40px; border-bottom: 1px solid var(--border); position: relative; transition: border-color 0.25s; }
 .pricing-top::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--orange); }
 .founding-badge {
@@ -532,17 +564,20 @@ body.light .guarantee-label { color: var(--green); }
 .price-note { font-size: 14px; color: var(--dim); margin-bottom: 24px; transition: color 0.25s; }
 .price-note strong { color: var(--text); }
 
+/* Pricing section header: center on desktop */
+#pricing .section-header { text-align: center; }
+
 /* 20-spot progress bar */
 .spots-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
 .spots-label { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--dim); transition: color 0.25s; }
 .spots-count { color: var(--orange); }
 .live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); animation: blink 1.4s infinite; flex-shrink: 0; }
-.spots-track { display: flex; flex-wrap: wrap; gap: 3px; margin-bottom: 32px; }
-.spot-seg { height: 6px; border-radius: 2px; flex: 1; min-width: 24px; }
+.spots-track { display: flex; flex-wrap: nowrap; gap: 3px; margin-bottom: 32px; }
+.spot-seg { height: 6px; border-radius: 2px; flex: 1; min-width: 0; }
 .spot-seg.taken { background: var(--orange); }
 .spot-seg.open  { background: var(--border2); }
 
-.pricing-includes { padding: 28px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; transition: border-color 0.25s; }
+.pricing-includes { padding: 28px 40px; display: grid; grid-template-columns: 1fr; gap: 10px; transition: border-color 0.25s; }
 .include-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--dim); transition: color 0.25s; }
 .include-item::before { content: '✓'; color: var(--green); font-weight: 700; font-size: 13px; flex-shrink: 0; }
 
@@ -705,7 +740,7 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
   .hero-cta-group { max-width: 100%; }
 
   .hero { padding: 40px 16px; min-height: calc(100dvh - var(--nav-h) - 37px); }
-  .hero h1 { font-size: clamp(36px, 10.5vw, 52px); letter-spacing: -1.5px; }
+  .hero h1 { font-size: clamp(28px, 8.2vw, 44px); letter-spacing: -1.5px; }
 
   /* Urgency bar: scale down on mobile */
   .bar-cd-label { font-size: 9px; letter-spacing: 2px; }
@@ -720,8 +755,10 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
   .section-header { margin-bottom: 36px; }
   .contrast-grid,
   .who-grid,
-  .pricing-includes,
-  .outcomes-grid { grid-template-columns: 1fr; }
+  .pricing-includes { grid-template-columns: 1fr; }
+  .value-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .value-price { font-size: 13px; }
+  .value-row.total-row { flex-direction: row; align-items: center; }
   /* What's Inside: mobile */
   .inside-item {
     grid-template-columns: 1fr;
@@ -729,7 +766,7 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
   }
   .inside-num { display: none; } /* hide big desktop number */
   .inside-num-mobile { display: block; } /* show small mobile number inside card */
-  .inside-img-wrap { display: none; }
+  .inside-img-wrap { display: block; }
   .inside-card-body { padding: 20px 20px; }
   /* About: stack on mobile */
   .about-inner { grid-template-columns: 1fr; }
@@ -838,7 +875,7 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
       <a href="https://fscreative.circle.so/checkout/founding-member">
         <button class="btn-primary">Start Building My Brand →</button>
       </a>
-      <a href="#how-it-works">
+      <a href="#inside">
         <button class="btn-outline">See How It Works</button>
       </a>
     </div>
@@ -894,10 +931,10 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
   </section>
 
   <!-- WHAT'S INSIDE -->
-  <section class="section">
+  <section class="section" id="inside">
     <div class="section-header">
       <div class="eyebrow">What's Inside</div>
-      <h2>Everything you need to go <span class="o">premium.</span></h2>
+      <h2>Here's what you get<br>inside <span class="o">FSCreative™</span></h2>
     </div>
 
     <div class="inside-list">
@@ -1096,52 +1133,39 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
   </section>
 
   <!-- OUTCOMES -->
-  <section class="section">
-    <div class="section-header">
-      <div class="eyebrow">The Transformation</div>
-      <h2>What you'll<br><span class="o">walk away with.</span></h2>
+  <section class="section" style="padding-top: 0;">
+    <div class="section-header" style="margin-bottom: 24px;">
+      <div class="eyebrow">What You'll Walk Away With</div>
     </div>
 
-    <div class="outcomes-grid">
-      <div class="outcome-item"><span class="outcome-arrow">→</span><span class="outcome-text">A premium authority brand that reflects the real value of your expertise</span></div>
-      <div class="outcome-item"><span class="outcome-arrow">→</span><span class="outcome-text">Crystal-clear positioning that differentiates you in your niche</span></div>
-      <div class="outcome-item"><span class="outcome-arrow">→</span><span class="outcome-text">A repeatable, cinematic content system that removes creative friction</span></div>
-      <div class="outcome-item"><span class="outcome-arrow">→</span><span class="outcome-text">Audience trust that converts attention into higher-quality clients</span></div>
-      <div class="outcome-item"><span class="outcome-arrow">→</span><span class="outcome-text">A 7-day launch plan to announce your rebrand with momentum</span></div>
-      <div class="outcome-item"><span class="outcome-arrow">→</span><span class="outcome-text">Confidence showing up online because your brand finally looks like it should</span></div>
-    </div>
-  </section>
-
-  <!-- WHO IT'S FOR -->
-  <section class="section">
-    <div class="section-header">
-      <div class="eyebrow">Fit Check</div>
-      <h2>Is this<br><span class="o">for you?</span></h2>
-    </div>
-
-    <div class="who-grid">
-      <div class="who-col">
-        <div class="who-col-label yes">This Is for You If →</div>
-        <div class="who-list">
-          <div class="who-item"><span class="who-icon yes">✓</span> You already sell a product, service, or offer — but your brand doesn't reflect the level of your work</div>
-          <div class="who-item"><span class="who-icon yes">✓</span> You've invested real time into content but the results don't match the effort</div>
-          <div class="who-item"><span class="who-icon yes">✓</span> You know your skills are strong, yet other creators with weaker work appear more established</div>
-          <div class="who-item"><span class="who-icon yes">✓</span> You want a clear system for turning ideas into high-quality content consistently</div>
-          <div class="who-item"><span class="who-icon yes">✓</span> You believe trust and positioning matter more than chasing the algorithm</div>
-          <div class="who-item"><span class="who-icon yes">✓</span> You're actively building something and ready to approach it strategically</div>
-          <div class="who-item"><span class="who-icon yes">✓</span> You're willing to implement what you learn and install real systems</div>
-        </div>
+    <div class="value-list">
+      <div class="value-row">
+        <div class="value-item-text"><span class="arr">→</span><span>A premium authority brand that reflects the real value of your expertise</span></div>
+        <div class="value-price">$2,000 value</div>
       </div>
-      <div class="who-col">
-        <div class="who-col-label no">This Is NOT for You If →</div>
-        <div class="who-list">
-          <div class="who-item"><span class="who-icon no">✕</span> Your primary goal is to go viral, chase views, or hack the algorithm</div>
-          <div class="who-item"><span class="who-icon no">✕</span> You're looking for shortcuts instead of building real brand authority</div>
-          <div class="who-item"><span class="who-icon no">✕</span> You're still in the "thinking about starting" stage rather than actively building</div>
-          <div class="who-item"><span class="who-icon no">✕</span> You want motivation or entertainment rather than structured implementation</div>
-          <div class="who-item"><span class="who-icon no">✕</span> You're not planning to take action on what's inside the program</div>
-          <div class="who-item"><span class="who-icon no">✕</span> Investing in your brand currently feels financially stressful or risky</div>
-        </div>
+      <div class="value-row">
+        <div class="value-item-text"><span class="arr">→</span><span>Crystal-clear positioning that differentiates you in your niche</span></div>
+        <div class="value-price">$1,500 value</div>
+      </div>
+      <div class="value-row">
+        <div class="value-item-text"><span class="arr">→</span><span>A repeatable, cinematic content system that removes creative friction</span></div>
+        <div class="value-price">$3,000 value</div>
+      </div>
+      <div class="value-row">
+        <div class="value-item-text"><span class="arr">→</span><span>Audience trust that converts attention into higher-quality clients</span></div>
+        <div class="value-price">$2,500 value</div>
+      </div>
+      <div class="value-row">
+        <div class="value-item-text"><span class="arr">→</span><span>A 7-day launch plan to announce your rebrand with momentum</span></div>
+        <div class="value-price">$1,000 value</div>
+      </div>
+      <div class="value-row">
+        <div class="value-item-text"><span class="arr">→</span><span>Confidence showing up online because your brand finally looks like it should</span></div>
+        <div class="value-price">$1,500 value</div>
+      </div>
+      <div class="value-row total-row">
+        <div class="value-total-label">Total Value</div>
+        <div class="value-total-amount">$11,500</div>
       </div>
     </div>
   </section>
@@ -1210,13 +1234,45 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
 
     <!-- GUARANTEE — below pricing -->
     <div class="guarantee-box">
-      <svg class="guarantee-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      <div class="guarantee-text">
-        <div class="guarantee-label">30-Day Money-Back Guarantee</div>
-        <div class="guarantee-body">Not blown away? Email us within 30 days and we'll refund every penny. No hoops. No hassles. No hard feelings. <strong>We're that confident this will transform your brand.</strong></div>
-      </div>
+      <div class="guar-headline">Do the work.<br>Get the result.<br><span style="color:var(--orange)">Or your money back.</span></div>
+      <div class="guarantee-label">The Brand Launch Guarantee</div>
+      <div class="guarantee-body">Complete the Brand Launch Checklist™ in full. If you don't feel confident launching your Premium Personal Brand and content system after completing it, submit your checklist and receive a full refund. No questions asked.</div>
     </div>
 
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">Fit Check</div>
+      <h2>Is this<br><span class="o">for you?</span></h2>
+    </div>
+
+    <div class="who-grid">
+      <div class="who-col">
+        <div class="who-col-label yes">This Is for You If →</div>
+        <div class="who-list">
+          <div class="who-item"><span class="who-icon yes">✓</span> You already sell a product, service, or offer — but your brand doesn't reflect the level of your work</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You've invested real time into content but the results don't match the effort</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You know your skills are strong, yet other creators with weaker work appear more established</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You want a clear system for turning ideas into high-quality content consistently</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You believe trust and positioning matter more than chasing the algorithm</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You're actively building something and ready to approach it strategically</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You're willing to implement what you learn and install real systems</div>
+        </div>
+      </div>
+      <div class="who-col">
+        <div class="who-col-label no">This Is NOT for You If →</div>
+        <div class="who-list">
+          <div class="who-item"><span class="who-icon no">✕</span> Your primary goal is to go viral, chase views, or hack the algorithm</div>
+          <div class="who-item"><span class="who-icon no">✕</span> You're looking for shortcuts instead of building real brand authority</div>
+          <div class="who-item"><span class="who-icon no">✕</span> You're still in the "thinking about starting" stage rather than actively building</div>
+          <div class="who-item"><span class="who-icon no">✕</span> You want motivation or entertainment rather than structured implementation</div>
+          <div class="who-item"><span class="who-icon no">✕</span> You're not planning to take action on what's inside the program</div>
+          <div class="who-item"><span class="who-icon no">✕</span> Investing in your brand currently feels financially stressful or risky</div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- FAQ -->
@@ -1296,7 +1352,7 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
 
 <!-- FINAL CTA -->
 <section class="final-section">
-  <div class="final-headline">Your brand is either building trust or <span class="o">losing it.</span></div>
+  <div class="final-headline">Your brand is either<br>building trust<br>or <span class="o">losing it.</span></div>
   <p class="final-sub">Every day without a premium brand, you're leaving sales, credibility, and opportunities on the table. Join FSCreative™ and install the system today.</p>
   <div class="final-cta-wrap">
     <a href="https://fscreative.circle.so/checkout/founding-member">
@@ -1335,11 +1391,13 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
     setInterval(swap, 6000);
   })();
 
-  // ── ROADMAP ACCORDION ──
+  // ── ROADMAP ACCORDION (single-open) ──
   document.querySelectorAll('.roadmap-header').forEach(header => {
     header.addEventListener('click', () => {
       const card = header.closest('.roadmap-card');
-      card.classList.toggle('rm-open');
+      const isOpen = card.classList.contains('rm-open');
+      document.querySelectorAll('.roadmap-card').forEach(c => c.classList.remove('rm-open'));
+      if (!isOpen) card.classList.add('rm-open');
     });
   });
 
