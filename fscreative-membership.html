@@ -137,24 +137,39 @@ body.light .icon-sun  { display: block; }
 }
 .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
 
-/* ─── URGENCY BAR — NEXT LIVE CLASS ─── */
+/* ─── URGENCY BAR — ANIMATED DUAL PANEL ─── */
 .urgency-bar {
-  background: var(--orange);
-  padding: 8px 20px;
-  display: flex; align-items: center; justify-content: center; gap: 16px;
+  background: #0d0d0d;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  height: 44px;
+  position: relative;
+  overflow: hidden;
 }
+/* Two panels overlay inside the bar */
+.bar-panel {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  opacity: 0; transform: translateY(10px);
+  transition: opacity 0.6s cubic-bezier(.4,0,.2,1), transform 0.6s cubic-bezier(.4,0,.2,1);
+  pointer-events: none;
+}
+.bar-panel.bar-visible {
+  opacity: 1; transform: translateY(0);
+  pointer-events: auto;
+}
+/* Countdown panel */
 .urgency-dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: #fff; opacity: 0.7; flex-shrink: 0;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--orange); opacity: 0.75; flex-shrink: 0;
   animation: blink 1.4s ease-in-out infinite;
 }
-@keyframes blink { 0%,100%{opacity:.7} 50%{opacity:.2} }
+@keyframes blink { 0%,100%{opacity:.75} 50%{opacity:.2} }
 .bar-countdown { display: flex; align-items: center; gap: 12px; }
 .bar-cd-label {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 11px; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 3px; color: #fff;
-  white-space: nowrap;
+  text-transform: uppercase; letter-spacing: 3px;
+  color: rgba(255,255,255,0.6); white-space: nowrap;
 }
 .bar-cd-timer { display: flex; align-items: center; gap: 3px; }
 .bar-cd-unit { display: flex; flex-direction: column; align-items: center; min-width: 30px; }
@@ -166,13 +181,23 @@ body.light .icon-sun  { display: block; }
 .bar-cd-sub {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
-  color: rgba(255,255,255,0.75); margin-top: 1px;
+  color: rgba(255,255,255,0.35); margin-top: 1px;
 }
 .bar-cd-sep {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 16px; font-weight: 900;
-  color: rgba(255,255,255,0.6); padding-bottom: 10px;
+  color: rgba(255,255,255,0.25); padding-bottom: 10px;
 }
+/* Guarantee panel */
+.bar-guarantee { display: flex; align-items: center; gap: 10px; }
+.bar-guar-icon { color: #4ade80; flex-shrink: 0; }
+.bar-guar-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2.5px;
+  color: rgba(255,255,255,0.65); white-space: nowrap;
+}
+.bar-guar-accent { color: #4ade80; font-weight: 800; }
 
 /* ─── LOGO LIGHT/DARK ─── */
 .logo-dark  { display: block; }
@@ -218,7 +243,7 @@ body.light .logo-light { display: block; }
 
 .hero-stars {
   display: flex; align-items: center; gap: 10px;
-  margin-bottom: 28px;
+  margin-bottom: 8px;
 }
 .hero-star-icons { color: #f5a623; font-size: 15px; letter-spacing: 3px; }
 .hero-star-text {
@@ -227,6 +252,13 @@ body.light .logo-light { display: block; }
   text-transform: uppercase; letter-spacing: 3px;
   color: var(--dimmer); transition: color 0.25s;
 }
+.hero-spots-row {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+  margin-bottom: 32px;
+}
+.hero-spots-num { color: var(--orange); font-weight: 800; }
+.hero-spots-text { color: var(--dimmer); font-weight: 600; transition: color 0.25s; }
 
 .hero h1 {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -326,7 +358,7 @@ body.light .logo-light { display: block; }
 .inside-list { display: flex; flex-direction: column; }
 .inside-item {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   gap: 56px; padding: 72px 0;
   border-bottom: 1px solid var(--border);
   align-items: start;
@@ -343,6 +375,14 @@ body.light .logo-light { display: block; }
   padding-top: 0;
   transition: color 0.25s;
 }
+/* Mobile-only num shown inside card-body */
+.inside-num-mobile {
+  display: none;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 800;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 8px;
+}
 .inside-card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -351,7 +391,7 @@ body.light .logo-light { display: block; }
   transition: background 0.25s, border-color 0.25s;
 }
 .inside-img-wrap { line-height: 0; }
-.inside-img-wrap img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; }
+.inside-img-wrap img { width: 100%; display: block; aspect-ratio: 21/9; object-fit: cover; }
 .inside-card-body { padding: 28px 32px; }
 .inside-label {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -574,17 +614,34 @@ body.light .logo-light { display: block; }
 .faq-item.faq-open .faq-a { max-height: 400px; padding-top: 12px; }
 
 /* ─── ABOUT ─── */
-.about-inner { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: flex-start; }
+.about-inner { display: grid; grid-template-columns: 300px 1fr; gap: 52px; align-items: flex-start; }
 .about-avatar {
-  width: 88px; height: 88px; border-radius: 50%;
-  background: var(--card); border: 2px solid var(--border2);
-  display: flex; align-items: center; justify-content: center;
+  width: 100%; aspect-ratio: 1/1;
+  border-radius: 12px;
+  border: 2px solid var(--orange);
+  object-fit: cover; display: block;
+  transition: border-color 0.25s;
+}
+.about-name {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 28px; font-weight: 900; color: var(--orange); flex-shrink: 0;
+  font-size: 28px; font-weight: 900;
+  color: var(--text); margin-bottom: 4px; transition: color 0.25s;
+}
+.about-role { font-size: 13px; font-weight: 600; color: var(--orange); letter-spacing: 0.5px; margin-bottom: 28px; }
+.about-stats {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 28px;
+}
+.about-stat {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 16px 14px; text-align: center;
   transition: background 0.25s, border-color 0.25s;
 }
-.about-name { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 26px; font-weight: 900; text-transform: uppercase; color: var(--text); margin-bottom: 4px; transition: color 0.25s; }
-.about-handle { font-size: 13px; color: var(--dimmer); margin-bottom: 20px; transition: color 0.25s; }
+.about-stat-val {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 20px; font-weight: 900; color: var(--text);
+  margin-bottom: 4px; transition: color 0.25s;
+}
+.about-stat-label { font-size: 11px; color: var(--dim); line-height: 1.3; transition: color 0.25s; }
 .about-body { font-size: 15px; color: var(--dim); line-height: 1.75; transition: color 0.25s; }
 .about-body p + p { margin-top: 14px; }
 
@@ -631,15 +688,16 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
   .hero-cta-group { max-width: 100%; }
 
   .hero { padding: 40px 16px; min-height: calc(100dvh - var(--nav-h) - 37px); }
-  .hero h1 { font-size: clamp(44px, 12vw, 60px); letter-spacing: -2px; }
+  .hero h1 { font-size: clamp(36px, 10.5vw, 52px); letter-spacing: -1.5px; }
 
-  /* Urgency bar countdown: scale down on mobile */
-  .urgency-bar { gap: 10px; padding: 7px 12px; }
+  /* Urgency bar: scale down on mobile */
   .bar-cd-label { font-size: 9px; letter-spacing: 2px; }
   .bar-cd-num { font-size: 16px; }
   .bar-cd-sub { font-size: 6px; }
   .bar-cd-sep { font-size: 13px; padding-bottom: 8px; }
   .bar-cd-unit { min-width: 24px; }
+  .bar-guar-text { font-size: 10px; letter-spacing: 1.5px; }
+  .bar-guar-icon { width: 12px; height: 12px; }
 
   .section { padding: 56px 0; }
   .section-header { margin-bottom: 36px; }
@@ -647,23 +705,21 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
   .who-grid,
   .pricing-includes,
   .outcomes-grid { grid-template-columns: 1fr; }
-  /* What's Inside: mobile — full-width card, no image, small num above */
+  /* What's Inside: mobile */
   .inside-item {
     grid-template-columns: 1fr;
-    gap: 10px; padding: 36px 0;
+    gap: 0; padding: 32px 0;
   }
-  .inside-num {
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 3px;
-    line-height: 1;
-    color: var(--orange);
-    padding-top: 0;
-    text-transform: uppercase;
-  }
+  .inside-num { display: none; } /* hide big desktop number */
+  .inside-num-mobile { display: block; } /* show small mobile number inside card */
   .inside-img-wrap { display: none; }
   .inside-card-body { padding: 20px 20px; }
+  /* About: stack on mobile */
   .about-inner { grid-template-columns: 1fr; }
+  .about-avatar { max-width: 180px; aspect-ratio: 1/1; }
+  .about-stats { grid-template-columns: repeat(3,1fr); gap: 8px; }
+  .about-stat-val { font-size: 16px; }
+  .about-stat-label { font-size: 10px; }
   .guarantee-box { padding: 32px 24px; }
   .pricing-top { padding: 32px 24px; }
   .pricing-includes { padding: 24px 24px; }
@@ -721,22 +777,32 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
   </div>
 </nav>
 
-<!-- URGENCY BAR — NEXT LIVE CLASS -->
+<!-- URGENCY BAR — ANIMATED DUAL PANEL -->
 <div class="urgency-bar">
-  <div class="urgency-dot"></div>
-  <div class="bar-countdown">
-    <span class="bar-cd-label">Next Live Class</span>
-    <div class="bar-cd-timer">
-      <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-days">--</span><span class="bar-cd-sub">Days</span></div>
-      <div class="bar-cd-sep">:</div>
-      <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-hours">--</span><span class="bar-cd-sub">Hours</span></div>
-      <div class="bar-cd-sep">:</div>
-      <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-mins">--</span><span class="bar-cd-sub">Mins</span></div>
-      <div class="bar-cd-sep">:</div>
-      <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-secs">--</span><span class="bar-cd-sub">Secs</span></div>
+  <!-- Panel A: Countdown -->
+  <div class="bar-panel bar-visible" id="bar-panel-cd">
+    <div class="urgency-dot"></div>
+    <div class="bar-countdown">
+      <span class="bar-cd-label">Next Live Class</span>
+      <div class="bar-cd-timer">
+        <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-days">--</span><span class="bar-cd-sub">Days</span></div>
+        <div class="bar-cd-sep">:</div>
+        <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-hours">--</span><span class="bar-cd-sub">Hours</span></div>
+        <div class="bar-cd-sep">:</div>
+        <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-mins">--</span><span class="bar-cd-sub">Mins</span></div>
+        <div class="bar-cd-sep">:</div>
+        <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-secs">--</span><span class="bar-cd-sub">Secs</span></div>
+      </div>
+    </div>
+    <div class="urgency-dot"></div>
+  </div>
+  <!-- Panel B: Guarantee -->
+  <div class="bar-panel" id="bar-panel-guar">
+    <div class="bar-guarantee">
+      <svg class="bar-guar-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span class="bar-guar-text">30-Day Money-Back Guarantee — <span class="bar-guar-accent">No Risk</span></span>
     </div>
   </div>
-  <div class="urgency-dot"></div>
 </div>
 
 <!-- HERO -->
@@ -745,6 +811,9 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
     <div class="hero-stars">
       <span class="hero-star-icons">★★★★★</span>
       <span class="hero-star-text">5/5 · 100+ creators</span>
+    </div>
+    <div class="hero-spots-row">
+      <span class="hero-spots-num">18 spots remaining</span><span class="hero-spots-text"> at founding member price</span>
     </div>
     <h1>Build &amp; Launch<br>A <span class="o">Premium</span><br>Personal Brand.</h1>
 
@@ -824,9 +893,10 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
         <div class="inside-num">01</div>
         <div class="inside-card">
           <div class="inside-img-wrap">
-            <img src="remove_all_the_copy_and_the_logo_and_make_the_mockups_fill_the_entire_screen_all_it_is_is_a_tight-l_0oq60i6k40hysni2mxrn_0.png" alt="Brand Launch Checklist">
+            <img src="remove_all_the_copy_and_the_logo_and_make_the_mockups_fill_the_entire_screen_all_it_is_is_a_tight-l_emur3dflq0m6bzut4lv7_1.png" alt="Brand Launch Checklist">
           </div>
           <div class="inside-card-body">
+            <div class="inside-num-mobile">01</div>
             <div class="inside-label">Brand Launch Checklist™</div>
             <div class="inside-body">The Brand Launch Checklist™ is the core framework inside FSCreative. It walks you step-by-step through building a premium personal brand and a repeatable content system. Inside the checklist you will:</div>
             <div class="arrow-list">
@@ -844,9 +914,10 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
         <div class="inside-num">02</div>
         <div class="inside-card">
           <div class="inside-img-wrap">
-            <img src="now_i_want_to_create_somehting_like_the_first_image_i_uploaded_for_a_monthly_masterclass_-_make_the_gdfnfnakulfmaf60acoj_0.jpeg" alt="Monthly Masterclass">
+            <img src="similar_to_the_second_image_i_downloaded_i_want_to_create_a_live_icon_on_my_image_of_me_which_is_me_8o4djey8awhjp1qls6lp_1.png" alt="Monthly Masterclass">
           </div>
           <div class="inside-card-body">
+            <div class="inside-num-mobile">02</div>
             <div class="inside-label">Monthly Masterclass</div>
             <div class="inside-body">Each month we go deeper into the skills that elevate a creator from amateur to authority. These sessions focus on the strategic and creative skills that make a brand stand out and grow faster. We'll explore topics like:</div>
             <div class="arrow-list">
@@ -863,9 +934,10 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
         <div class="inside-num">03</div>
         <div class="inside-card">
           <div class="inside-img-wrap">
-            <img src="similar_to_the_first_image_i_downloaded_i_want_to_create_a_live_icon_on_my_image_of_me_which_is_me__l3tqdy7ng9xa2y0n7o4v_0.jpeg" alt="Weekly Calls">
+            <img src="rework_the_first_image_so_that_it_shows_a_little_bit_more_personality_you_can_use_the_screenshots_f_k0zuj8iojehmhinhng9j_1.jpeg" alt="Weekly Calls">
           </div>
           <div class="inside-card-body">
+            <div class="inside-num-mobile">03</div>
             <div class="inside-label">Weekly Calls</div>
             <div class="inside-body">Every week we'll go live to answer questions, review progress, and solve challenges. These calls give you direct access to guidance, feedback, and strategy as you build your brand.</div>
             <div class="arrow-list">
@@ -1178,12 +1250,29 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
 
   <!-- ABOUT -->
   <section class="section">
-    <div class="eyebrow" style="margin-bottom:40px">About</div>
+    <div class="section-header">
+      <div class="eyebrow">About</div>
+      <h2>Your <span class="o">Instructor.</span></h2>
+    </div>
     <div class="about-inner">
-      <img class="about-avatar" src="458590589_1534654820461228_4076101104222827177_n.jpg" alt="Gabe" style="object-fit:cover;">
+      <img class="about-avatar" src="458590589_1534654820461228_4076101104222827177_n.jpg" alt="Gabe">
       <div>
-        <div class="about-name">Hi, I'm Gabe.</div>
-        <div class="about-handle">Founder, FSCreative™ · @watch.gabe</div>
+        <div class="about-name">Gabe Harris</div>
+        <div class="about-role">Founder, FSCreative™ · @watch.gabe</div>
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="about-stat-val">50K+</div>
+            <div class="about-stat-label">Instagram Followers</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-val">50K+</div>
+            <div class="about-stat-label">Digital Product Downloads</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-val">10 Yrs</div>
+            <div class="about-stat-label">Branding Agency Experience</div>
+          </div>
+        </div>
         <div class="about-body">
           <p>I built FSCreative™ because I kept watching talented creators get overlooked — not because their work wasn't good, but because their brand was working against them. A weak brand doesn't just hurt your aesthetics. It quietly costs you clients, partnerships, and opportunities every single day.</p>
           <p>I've spent years studying what makes premium brands command attention, charge more, and build loyal audiences — and I built the Brand Launch Checklist™ to install that same system into your brand, step by step.</p>
@@ -1218,6 +1307,24 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
 </footer>
 
 <script>
+  // ── BANNER PANEL ROTATION ──
+  (function() {
+    const panelCd   = document.getElementById('bar-panel-cd');
+    const panelGuar = document.getElementById('bar-panel-guar');
+    let showingCd = true;
+    function swap() {
+      if (showingCd) {
+        panelCd.classList.remove('bar-visible');
+        setTimeout(() => { panelGuar.classList.add('bar-visible'); }, 100);
+      } else {
+        panelGuar.classList.remove('bar-visible');
+        setTimeout(() => { panelCd.classList.add('bar-visible'); }, 100);
+      }
+      showingCd = !showingCd;
+    }
+    setInterval(swap, 6000);
+  })();
+
   // ── ROADMAP ACCORDION ──
   document.querySelectorAll('.roadmap-header').forEach(header => {
     header.addEventListener('click', () => {
