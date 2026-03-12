@@ -135,71 +135,48 @@ body.light .icon-sun  { display: block; }
 }
 .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
 
-/* ─── URGENCY BAR ─── */
+/* ─── URGENCY BAR — NEXT LIVE CLASS ─── */
 .urgency-bar {
   background: var(--orange);
-  padding: 10px 20px;
-  display: flex; align-items: center; justify-content: center; gap: 12px;
+  padding: 8px 20px;
+  display: flex; align-items: center; justify-content: center; gap: 16px;
 }
-.urgency-bar p {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 2px; color: #fff;
-  text-align: center;
-}
-.bar-mobile { display: none; }
-.bar-desktop { display: inline; }
 .urgency-dot {
   width: 7px; height: 7px; border-radius: 50%;
   background: #fff; opacity: 0.7; flex-shrink: 0;
   animation: blink 1.4s ease-in-out infinite;
 }
 @keyframes blink { 0%,100%{opacity:.7} 50%{opacity:.2} }
+.bar-countdown { display: flex; align-items: center; gap: 12px; }
+.bar-cd-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 3px; color: #fff;
+  white-space: nowrap;
+}
+.bar-cd-timer { display: flex; align-items: center; gap: 3px; }
+.bar-cd-unit { display: flex; flex-direction: column; align-items: center; min-width: 30px; }
+.bar-cd-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 900; letter-spacing: 1px;
+  color: #fff; line-height: 1;
+}
+.bar-cd-sub {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+  color: rgba(255,255,255,0.75); margin-top: 1px;
+}
+.bar-cd-sep {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px; font-weight: 900;
+  color: rgba(255,255,255,0.6); padding-bottom: 10px;
+}
 
-/* ─── NEXT LIVE CLASS COUNTDOWN ─── */
-.next-class-timer {
-  display: inline-flex; align-items: center; gap: 14px;
-  background: var(--surface); border: 1px solid var(--border2);
-  border-radius: 8px; padding: 9px 16px;
-  transition: background 0.25s, border-color 0.25s;
-}
-.nct-label {
-  display: flex; align-items: center; gap: 7px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 10px; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 3px;
-  color: var(--dimmer); white-space: nowrap;
-  transition: color 0.25s;
-}
-.nct-dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: #ff3b3b; flex-shrink: 0;
-  animation: blink 1.4s ease-in-out infinite;
-}
-.nct-countdown {
-  display: flex; align-items: center; gap: 3px;
-}
-.nct-unit {
-  display: flex; flex-direction: column; align-items: center; min-width: 34px;
-}
-.nct-num {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 24px; font-weight: 900; letter-spacing: 1px;
-  color: var(--text); line-height: 1;
-  transition: color 0.25s;
-}
-.nct-sub {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
-  color: var(--dimmer); margin-top: 2px;
-  transition: color 0.25s;
-}
-.nct-sep {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 20px; font-weight: 900;
-  color: var(--dimmer); padding-bottom: 14px; padding-left: 1px; padding-right: 1px;
-  transition: color 0.25s;
-}
+/* ─── LOGO LIGHT/DARK ─── */
+.logo-dark  { display: block; }
+.logo-light { display: none;  }
+body.light .logo-dark  { display: none;  }
+body.light .logo-light { display: block; }
 
 /* ─── HERO ─── */
 .hero {
@@ -334,14 +311,25 @@ body.light .icon-sun  { display: block; }
 /* ─── WHAT'S INSIDE — numbered text layout ─── */
 .inside-list { display: flex; flex-direction: column; }
 .inside-item {
-  display: grid; grid-template-columns: 56px 1fr;
-  gap: 28px; padding: 40px 0;
+  display: grid;
+  grid-template-columns: 56px 1fr 300px;
+  grid-template-areas: "num content img";
+  gap: 32px; padding: 44px 0;
   border-bottom: 1px solid var(--border);
+  align-items: start;
   transition: border-color 0.25s;
 }
 .inside-item:first-child { border-top: 1px solid var(--border); }
 .inside-item:last-child { border-bottom: none; }
-.inside-content { max-width: 700px; }
+.inside-num   { grid-area: num; }
+.inside-content { grid-area: content; }
+.inside-img-wrap {
+  grid-area: img;
+  border-radius: 10px; overflow: hidden;
+  border: 1px solid var(--border); flex-shrink: 0;
+  transition: border-color 0.25s;
+}
+.inside-img-wrap img { width: 100%; display: block; }
 .inside-num {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 12px; font-weight: 800;
@@ -628,14 +616,13 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
   .hero { padding: 60px 16px; min-height: 100svh; }
   .hero h1 { letter-spacing: -1px; }
 
-  /* Hide social proof tagline on mobile, keep countdown */
-  .social-proof-text { display: none; }
-  .nct-label span:last-child { display: none; } /* hide "Next Live Class" text on tiny screens, keep dot */
-
-  /* Urgency bar: shorter text + smaller size on mobile */
-  .bar-desktop { display: none; }
-  .bar-mobile { display: inline; }
-  .urgency-bar p { font-size: 11px; letter-spacing: 1.5px; }
+  /* Urgency bar countdown: scale down on mobile */
+  .urgency-bar { gap: 10px; padding: 7px 12px; }
+  .bar-cd-label { font-size: 9px; letter-spacing: 2px; }
+  .bar-cd-num { font-size: 16px; }
+  .bar-cd-sub { font-size: 6px; }
+  .bar-cd-sep { font-size: 13px; padding-bottom: 8px; }
+  .bar-cd-unit { min-width: 24px; }
 
   .section { padding: 56px 0; }
   .section-header { margin-bottom: 36px; }
@@ -643,7 +630,13 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
   .who-grid,
   .pricing-includes,
   .outcomes-grid { grid-template-columns: 1fr; }
-  .inside-item { grid-template-columns: 40px 1fr; gap: 16px; padding: 32px 0; }
+  /* What's Inside: stack image above on mobile */
+  .inside-item {
+    grid-template-columns: 40px 1fr;
+    grid-template-areas: "img img" "num content";
+    gap: 16px; padding: 32px 0;
+  }
+  .inside-img-wrap { margin-bottom: 4px; }
   .about-inner { grid-template-columns: 1fr; }
   .guarantee-box { padding: 32px 24px; }
   .pricing-top { padding: 32px 24px; }
@@ -667,10 +660,6 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
   }
   .spots-track { gap: 3px; flex-wrap: nowrap; }
 
-  /* Countdown: tighten on mobile */
-  .next-class-timer { gap: 10px; padding: 8px 12px; }
-  .nct-num { font-size: 20px; }
-  .nct-unit { min-width: 28px; }
 }
 </style>
 </head>
@@ -680,7 +669,8 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
 <nav>
   <div class="nav-inner">
     <a href="https://fscreative.live" class="nav-logo">
-      <img src="FSC Orange White no TM@4x.png" height="15" alt="FSCreative" style="display:block;">
+      <img class="logo-dark"  src="FSC Orange White no TM@4x.png" height="18" alt="FSCreative">
+      <img class="logo-light" src="Dark Orange No TM@4x.png"       height="18" alt="FSCreative">
     </a>
 
     <div class="nav-right">
@@ -705,35 +695,27 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
   </div>
 </nav>
 
-<!-- URGENCY BAR -->
+<!-- URGENCY BAR — NEXT LIVE CLASS -->
 <div class="urgency-bar">
   <div class="urgency-dot"></div>
-  <p><span class="bar-desktop">Founding Member Pricing — 20 Spots Total — Price Increases When Full</span><span class="bar-mobile">20 seats available at this price</span></p>
+  <div class="bar-countdown">
+    <span class="bar-cd-label">Next Live Class</span>
+    <div class="bar-cd-timer">
+      <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-days">--</span><span class="bar-cd-sub">Days</span></div>
+      <div class="bar-cd-sep">:</div>
+      <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-hours">--</span><span class="bar-cd-sub">Hours</span></div>
+      <div class="bar-cd-sep">:</div>
+      <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-mins">--</span><span class="bar-cd-sub">Mins</span></div>
+      <div class="bar-cd-sep">:</div>
+      <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-secs">--</span><span class="bar-cd-sub">Secs</span></div>
+    </div>
+  </div>
   <div class="urgency-dot"></div>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-social-proof">
-      <div class="next-class-timer">
-        <div class="nct-label">
-          <span class="nct-dot"></span>
-          <span>Next Live Class</span>
-        </div>
-        <div class="nct-countdown">
-          <div class="nct-unit"><span class="nct-num" id="cd-days">--</span><span class="nct-sub">Days</span></div>
-          <div class="nct-sep">:</div>
-          <div class="nct-unit"><span class="nct-num" id="cd-hours">--</span><span class="nct-sub">Hours</span></div>
-          <div class="nct-sep">:</div>
-          <div class="nct-unit"><span class="nct-num" id="cd-mins">--</span><span class="nct-sub">Mins</span></div>
-          <div class="nct-sep">:</div>
-          <div class="nct-unit"><span class="nct-num" id="cd-secs">--</span><span class="nct-sub">Secs</span></div>
-        </div>
-      </div>
-      <span class="social-proof-text">For Creators Who Sell Something Real</span>
-    </div>
-
     <h1>Build &amp; Launch<br>A <span class="o">Premium</span><br>Personal Brand.</h1>
 
     <p class="hero-sub">
@@ -803,7 +785,7 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
   <section class="section">
     <div class="section-header">
       <div class="eyebrow">What's Inside</div>
-      <h2>Everything you need<br>to go <span class="o">premium.</span></h2>
+      <h2>Everything you need to go <span class="o">premium.</span></h2>
     </div>
 
     <div class="inside-list">
@@ -821,6 +803,9 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
             <div class="arrow-item"><span class="arr">→</span> Launch your brand with a clear growth strategy</div>
           </div>
         </div>
+        <div class="inside-img-wrap">
+          <img src="create_a_mockup_like_the_one_attached_but_make_it_for_my_brand_launch_checklist_use_the_screenshots_kadesft7zrbsnv6n6czw_1.png" alt="Brand Launch Checklist">
+        </div>
       </div>
 
       <div class="inside-item">
@@ -835,12 +820,15 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
             <div class="arrow-item"><span class="arr">→</span> AI tools for creators</div>
           </div>
         </div>
+        <div class="inside-img-wrap">
+          <img src="now_i_want_to_create_somehting_like_the_first_image_i_uploaded_for_a_monthly_masterclass_-_make_the_gdfnfnakulfmaf60acoj_0.jpeg" alt="Monthly Masterclass">
+        </div>
       </div>
 
       <div class="inside-item">
         <div class="inside-num">03</div>
         <div class="inside-content">
-          <div class="inside-label">Mentorship</div>
+          <div class="inside-label">Weekly Calls</div>
           <div class="inside-body">Every week we'll go live to answer questions, review progress, and solve challenges. These calls give you direct access to guidance, feedback, and strategy as you build your brand.</div>
           <div class="arrow-list">
             <div class="arrow-item"><span class="arr">→</span> Weekly Ask Gabe coaching calls</div>
@@ -849,6 +837,9 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
             <div class="arrow-item"><span class="arr">→</span> Strategy discussions with other creators</div>
             <div class="arrow-item"><span class="arr">→</span> Support as you implement the checklist</div>
           </div>
+        </div>
+        <div class="inside-img-wrap">
+          <img src="similar_to_the_first_image_i_downloaded_i_want_to_create_a_live_icon_on_my_image_of_me_which_is_me__l3tqdy7ng9xa2y0n7o4v_0.jpeg" alt="Weekly Calls">
         </div>
       </div>
 
@@ -1256,14 +1247,14 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
     function tick() {
       const diff = getNextClass() - new Date();
       if (diff <= 0) {
-        ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => document.getElementById(id).textContent = '00');
+        ['bar-days','bar-hours','bar-mins','bar-secs'].forEach(id => document.getElementById(id).textContent = '00');
         return;
       }
       const s = Math.floor(diff / 1000);
-      document.getElementById('cd-days').textContent  = pad(Math.floor(s / 86400));
-      document.getElementById('cd-hours').textContent = pad(Math.floor((s % 86400) / 3600));
-      document.getElementById('cd-mins').textContent  = pad(Math.floor((s % 3600) / 60));
-      document.getElementById('cd-secs').textContent  = pad(s % 60);
+      document.getElementById('bar-days').textContent  = pad(Math.floor(s / 86400));
+      document.getElementById('bar-hours').textContent = pad(Math.floor((s % 86400) / 3600));
+      document.getElementById('bar-mins').textContent  = pad(Math.floor((s % 3600) / 60));
+      document.getElementById('bar-secs').textContent  = pad(s % 60);
     }
 
     tick();
