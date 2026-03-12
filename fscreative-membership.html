@@ -205,6 +205,18 @@ body.light .icon-sun  { display: block; }
 body.light .logo-dark  { display: none;  }
 body.light .logo-light { display: block; }
 
+/* ─── LIGHT MODE BANNER ─── */
+body.light .urgency-bar {
+  background: var(--surface);
+  border-bottom-color: var(--border);
+}
+body.light .bar-cd-num  { color: var(--text); }
+body.light .bar-cd-label { color: var(--dimmer); }
+body.light .bar-cd-sep   { color: var(--border2); }
+body.light .bar-cd-sub   { color: var(--dimmer); }
+body.light .urgency-dot  { background: var(--orange); }
+body.light .bar-guar-text { color: var(--dim); }
+
 /* ─── HERO ─── */
 .hero {
   min-height: calc(100dvh - var(--nav-h) - var(--bar-h));
@@ -218,7 +230,7 @@ body.light .logo-light { display: block; }
   transition: border-color 0.25s;
 }
 .hero-inner {
-  width: 100%; max-width: 880px;
+  width: 100%; max-width: 960px;
   display: flex; flex-direction: column; align-items: center;
   position: relative; z-index: 1;
 }
@@ -255,7 +267,7 @@ body.light .logo-light { display: block; }
 .hero-spots-row {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 .hero-spots-num { color: var(--orange); font-weight: 800; }
 .hero-spots-text { color: var(--dimmer); font-weight: 600; transition: color 0.25s; }
@@ -263,10 +275,10 @@ body.light .logo-light { display: block; }
 .hero h1 {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 900;
-  font-size: clamp(52px, 9vw, 116px);
+  font-size: clamp(52px, 6.5vw, 88px);
   text-transform: uppercase;
   letter-spacing: -3px; line-height: 0.92;
-  color: var(--text); max-width: 880px;
+  color: var(--text); max-width: 960px;
   margin: 0 auto 28px;
   transition: color 0.25s;
 }
@@ -471,28 +483,32 @@ body.light .logo-light { display: block; }
 
 /* ─── GUARANTEE ─── */
 .guarantee-box {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 6px; padding: 48px 40px;
-  display: flex; flex-direction: column; gap: 16px;
-  position: relative; overflow: hidden;
+  background: rgba(74,222,128,0.04);
+  border: 1px solid rgba(74,222,128,0.18);
+  border-radius: 10px; padding: 24px 28px;
+  display: flex; flex-direction: row; gap: 16px; align-items: flex-start;
+  max-width: 580px; margin: 12px auto 0;
   transition: background 0.25s, border-color 0.25s;
 }
-.guarantee-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--orange); }
+body.light .guarantee-box {
+  background: rgba(26,122,58,0.06);
+  border-color: rgba(26,122,58,0.2);
+}
+.guarantee-icon {
+  flex-shrink: 0; color: #4ade80; margin-top: 1px;
+}
+body.light .guarantee-icon { color: var(--green); }
+.guarantee-text { display: flex; flex-direction: column; gap: 6px; }
 .guarantee-label {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; color: var(--orange);
+  font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: #4ade80;
 }
-.guarantee-headline {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: clamp(28px, 4vw, 46px); font-weight: 900;
-  text-transform: uppercase; line-height: 1; color: var(--text);
-  transition: color 0.25s;
-}
-.guarantee-headline .o { color: var(--orange); }
-.guarantee-body { font-size: 15px; color: var(--dim); line-height: 1.7; max-width: 640px; transition: color 0.25s; }
+body.light .guarantee-label { color: var(--green); }
+.guarantee-body { font-size: 14px; color: var(--dim); line-height: 1.65; transition: color 0.25s; }
+.guarantee-body strong { color: var(--text); }
 
 /* ─── PRICING ─── */
-.pricing-box { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; transition: background 0.25s, border-color 0.25s; }
+.pricing-box { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; max-width: 580px; margin: 0 auto; transition: background 0.25s, border-color 0.25s; }
 .pricing-top { padding: 48px 40px; border-bottom: 1px solid var(--border); position: relative; transition: border-color 0.25s; }
 .pricing-top::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--orange); }
 .founding-badge {
@@ -526,7 +542,7 @@ body.light .logo-light { display: block; }
 .spot-seg.taken { background: var(--orange); }
 .spot-seg.open  { background: var(--border2); }
 
-.pricing-includes { padding: 32px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; transition: border-color 0.25s; }
+.pricing-includes { padding: 28px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; transition: border-color 0.25s; }
 .include-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--dim); transition: color 0.25s; }
 .include-item::before { content: '✓'; color: var(--green); font-weight: 700; font-size: 13px; flex-shrink: 0; }
 
@@ -614,7 +630,7 @@ body.light .logo-light { display: block; }
 .faq-item.faq-open .faq-a { max-height: 400px; padding-top: 12px; }
 
 /* ─── ABOUT ─── */
-.about-inner { display: grid; grid-template-columns: 300px 1fr; gap: 52px; align-items: flex-start; }
+.about-inner { display: grid; grid-template-columns: 210px 1fr; gap: 48px; align-items: flex-start; }
 .about-avatar {
   width: 100%; aspect-ratio: 1/1;
   border-radius: 12px;
@@ -654,9 +670,10 @@ body.light .logo-light { display: block; }
 }
 .final-headline {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 900; font-size: clamp(44px, 7vw, 88px);
+  font-weight: 900; font-size: clamp(36px, 5vw, 64px);
   text-transform: uppercase; letter-spacing: -2px;
   line-height: 0.93; color: var(--text); margin-bottom: 24px;
+  max-width: 560px; margin-left: auto; margin-right: auto;
   transition: color 0.25s;
 }
 .final-headline .o { color: var(--orange); }
@@ -808,14 +825,10 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-stars">
-      <span class="hero-star-icons">★★★★★</span>
-      <span class="hero-star-text">5/5 · 100+ creators</span>
-    </div>
     <div class="hero-spots-row">
       <span class="hero-spots-num">18 spots remaining</span><span class="hero-spots-text"> at founding member price</span>
     </div>
-    <h1>Build &amp; Launch<br>A <span class="o">Premium</span><br>Personal Brand.</h1>
+    <h1>Build &amp; Launch A <span class="o">Premium</span> Personal Brand.</h1>
 
     <p class="hero-sub">
       Your skills are real — but your brand still <strong>looks smaller than the value you deliver.</strong> FSCreative™ installs the system to fix that.
@@ -914,7 +927,7 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
         <div class="inside-num">02</div>
         <div class="inside-card">
           <div class="inside-img-wrap">
-            <img src="similar_to_the_second_image_i_downloaded_i_want_to_create_a_live_icon_on_my_image_of_me_which_is_me_8o4djey8awhjp1qls6lp_1.png" alt="Monthly Masterclass">
+            <img src="rework_the_first_image_so_that_it_shows_a_little_bit_more_personality_you_can_use_the_screenshots_f_k0zuj8iojehmhinhng9j_1.jpeg" alt="Monthly Masterclass">
           </div>
           <div class="inside-card-body">
             <div class="inside-num-mobile">02</div>
@@ -934,7 +947,7 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
         <div class="inside-num">03</div>
         <div class="inside-card">
           <div class="inside-img-wrap">
-            <img src="rework_the_first_image_so_that_it_shows_a_little_bit_more_personality_you_can_use_the_screenshots_f_k0zuj8iojehmhinhng9j_1.jpeg" alt="Weekly Calls">
+            <img src="similar_to_the_second_image_i_downloaded_i_want_to_create_a_live_icon_on_my_image_of_me_which_is_me_8o4djey8awhjp1qls6lp_1.png" alt="Weekly Calls">
           </div>
           <div class="inside-card-body">
             <div class="inside-num-mobile">03</div>
@@ -1133,15 +1146,6 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
     </div>
   </section>
 
-  <!-- GUARANTEE -->
-  <section class="section">
-    <div class="guarantee-box">
-      <div class="guarantee-label">The Brand Launch Guarantee</div>
-      <div class="guarantee-headline">Do the work.<br>Get the result.<br><span class="o">Or your money back.</span></div>
-      <div class="guarantee-body">Complete the Brand Launch Checklist™ in full. If you don't feel confident launching your Premium Personal Brand and content system after completing it, submit your checklist and receive a full refund. No questions asked.</div>
-    </div>
-  </section>
-
   <!-- PRICING -->
   <section class="section" id="pricing">
     <div class="section-header">
@@ -1197,16 +1201,22 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
       <div class="pricing-includes">
         <div class="include-item">Brand Launch Checklist™ — all 30 steps</div>
         <div class="include-item">Monthly Masterclasses + recordings</div>
-        <div class="include-item">Weekly Ask Gabe live coaching calls</div>
+        <div class="include-item">Weekly live coaching calls</div>
         <div class="include-item">Private FSCreative community</div>
-        <div class="include-item">Creator OS™ frameworks</div>
-        <div class="include-item">Shot system blueprint</div>
-        <div class="include-item">Content planning templates</div>
+        <div class="include-item">Content system installed</div>
         <div class="include-item">Funnel &amp; launch strategy tools</div>
-        <div class="include-item">Brand Launch Guarantee</div>
-        <div class="include-item">Cancel any time</div>
       </div>
     </div>
+
+    <!-- GUARANTEE — below pricing -->
+    <div class="guarantee-box">
+      <svg class="guarantee-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div class="guarantee-text">
+        <div class="guarantee-label">30-Day Money-Back Guarantee</div>
+        <div class="guarantee-body">Not blown away? Email us within 30 days and we'll refund every penny. No hoops. No hassles. No hard feelings. <strong>We're that confident this will transform your brand.</strong></div>
+      </div>
+    </div>
+
   </section>
 
   <!-- FAQ -->
@@ -1286,7 +1296,7 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
 
 <!-- FINAL CTA -->
 <section class="final-section">
-  <div class="final-headline">Your brand is either<br>building trust<br>or <span class="o">losing it.</span></div>
+  <div class="final-headline">Your brand is either building trust or <span class="o">losing it.</span></div>
   <p class="final-sub">Every day without a premium brand, you're leaving sales, credibility, and opportunities on the table. Join FSCreative™ and install the system today.</p>
   <div class="final-cta-wrap">
     <a href="https://fscreative.circle.so/checkout/founding-member">
