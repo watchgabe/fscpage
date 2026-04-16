@@ -43,33 +43,31 @@ a{text-decoration:none;color:inherit}
 .mode-btn{width:36px;height:20px;border-radius:10px;background:var(--bg3);border:1px solid var(--border2);cursor:pointer;position:relative;flex-shrink:0;}
 .mode-knob{width:14px;height:14px;border-radius:50%;background:var(--accent2);position:absolute;top:2px;left:2px;transition:transform .22s cubic-bezier(.4,0,.2,1);}
 .lm .mode-knob{transform:translateX(16px)}
-.nav-cta{padding:8px 20px;background:var(--accent);color:#fff;border-radius:var(--radius);font-size:12px;font-weight:600;font-family:var(--sans);letter-spacing:.02em;cursor:pointer;transition:background .15s;white-space:nowrap;text-decoration:none;display:inline-block;}
+.nav-cta{padding:8px 20px;background:var(--accent);color:#fff;border-radius:var(--radius);font-size:12px;font-weight:600;font-family:var(--sans);letter-spacing:.02em;transition:background .15s;white-space:nowrap;text-decoration:none;display:inline-block;}
 .nav-cta:hover{background:var(--accent-dim)}
 
 /* ─── HERO ─── */
-.hero{max-width:1080px;margin:0 auto;padding:7rem 2rem 5rem;display:grid;grid-template-columns:1fr 360px;gap:4rem;align-items:center;}
+.hero{max-width:1080px;margin:0 auto;padding:7rem 2rem 5rem;display:grid;grid-template-columns:1fr 380px;gap:4rem;align-items:center;}
 @media(max-width:820px){
-  .hero{grid-template-columns:1fr;padding:3rem 1.5rem 4rem;gap:2.5rem;}
-  .hero-right{order:-1;}
+  .hero{grid-template-columns:1fr;padding:0 0 4rem;gap:0;}
+  .hero-right{order:-1;aspect-ratio:3/2;border-radius:0;border-left:none;border-right:none;border-top:none;}
+  .hero-left{padding:2.5rem 1.5rem 0;}
 }
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent2);margin-bottom:1.25rem;}
 .hero-eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--accent)}
 .hero h1{font-family:var(--serif);font-size:clamp(44px,6vw,76px);font-weight:400;line-height:1.04;color:var(--text);letter-spacing:-.02em;margin-bottom:.9rem;}
 .hero h1 em{font-style:italic;color:var(--accent2)}
 .hero-desc{font-size:15px;color:var(--text2);line-height:1.75;font-weight:300;max-width:440px;}
-
-/* Stats card (replaces photo) */
-.stats-card{border:1px solid var(--border2);border-radius:var(--radius-xl);background:var(--bg2);overflow:hidden;}
-.stats-card-top{padding:1.5rem;border-bottom:1px solid var(--border);}
-.stats-card-label{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);margin-bottom:.4rem;}
-.stats-card-title{font-family:var(--serif);font-size:18px;color:var(--text);line-height:1.3;}
-.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
-.stat-item{padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);}
-.stat-item:nth-child(odd){border-right:1px solid var(--border);}
-.stat-item:nth-last-child(-n+2){border-bottom:none;}
-.stat-num{font-family:var(--serif);font-size:32px;color:var(--text);line-height:1;margin-bottom:.2rem;}
-.stat-num em{font-style:italic;color:var(--accent2);}
-.stat-label{font-size:11px;color:var(--text3);font-weight:400;line-height:1.4;}
+.hero-right{aspect-ratio:3/4;border:1px solid var(--border2);border-radius:var(--radius-xl);position:relative;overflow:hidden;background:#111;}
+.hr-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;}
+.hr-fade{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.92) 0%,rgba(8,8,8,.3) 50%,transparent 100%);}
+.lm .hr-fade{background:linear-gradient(to top,rgba(245,243,239,.92) 0%,rgba(245,243,239,.3) 50%,transparent 100%);}
+.hero-right-inner{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1.75rem;}
+.hr-tag{position:relative;z-index:2;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);margin-bottom:.5rem;}
+.hr-label{position:relative;z-index:2;font-family:var(--serif);font-size:20px;color:var(--text);line-height:1.35;margin-bottom:1.25rem;}
+.hr-chips{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:6px;}
+.hr-chip{font-size:11px;padding:4px 10px;background:rgba(8,8,8,.6);border:1px solid var(--border2);border-radius:20px;color:var(--text2);backdrop-filter:blur(8px);}
+.hr-chip.on{background:var(--accent-bg);border-color:var(--accent-border);color:var(--accent2)}
 
 /* ─── STAG / SHARED ─── */
 .stag{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent2);margin-bottom:1.1rem;display:inline-flex;align-items:center;gap:8px;}
@@ -85,7 +83,7 @@ a{text-decoration:none;color:inherit}
 .phase-header{padding:2.25rem 0 0;display:flex;align-items:center;gap:12px;}
 .phase-num{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent2);white-space:nowrap;}
 .phase-sep{flex:1;height:1px;background:var(--border2);}
-.phase-tag{font-size:10px;color:var(--text3);letter-spacing:.06em;white-space:nowrap;}
+.phase-days{font-size:10px;color:var(--text3);letter-spacing:.06em;white-space:nowrap;}
 .phase-intro{font-size:13px;color:var(--text3);line-height:1.7;font-weight:300;padding:.65rem 0 1rem;max-width:560px;}
 .deliverable{display:grid;grid-template-columns:44px 1fr auto;gap:0 1.25rem;align-items:start;padding:1.5rem 0;border-bottom:1px solid var(--border);}
 .deliverable:first-of-type{border-top:1px solid var(--border)}
@@ -97,44 +95,40 @@ a{text-decoration:none;color:inherit}
 .d-price{font-family:var(--serif);font-size:18px;color:var(--text3);white-space:nowrap;text-align:right;padding-top:2px;}
 @media(max-width:560px){.deliverable{grid-template-columns:32px 1fr}.d-price{display:none}}
 
-/* ─── TIERS ─── */
+/* ─── INVESTMENT ─── */
 .invest-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2);}
-.invest-inner{max-width:760px;margin:0 auto;padding:5rem 2rem;}
-.invest-inner h2{margin-bottom:2rem;}
-.tier-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-@media(max-width:600px){.tier-grid{grid-template-columns:1fr}}
-.tier-card{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--radius-xl);overflow:hidden;display:flex;flex-direction:column;}
-.tier-card--hi{border-color:var(--accent-border);background:rgba(240,96,27,.04);}
-.tier-top{padding:1.75rem 1.5rem 1.25rem;border-bottom:1px solid var(--border);}
-.tier-card--hi .tier-top{border-color:var(--accent-border);}
-.tier-badge{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);background:var(--accent-bg);border:1px solid var(--accent-border);border-radius:20px;padding:3px 8px;display:inline-block;margin-bottom:.75rem;}
-.tier-name{font-size:16px;font-weight:500;color:var(--text);margin-bottom:.4rem;letter-spacing:-.01em;}
-.tier-desc{font-size:12px;color:var(--text2);line-height:1.65;font-weight:300;}
-.tier-price-area{padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);}
-.tier-card--hi .tier-price-area{border-color:var(--accent-border);}
-.tier-price{font-family:var(--serif);font-size:42px;color:var(--text);line-height:1;}
-.tier-price span{font-family:var(--sans);font-size:13px;color:var(--text3);}
-.tier-plan{font-size:11px;color:var(--text3);margin-top:5px;letter-spacing:.02em;}
-.tier-features{padding:1rem 1.5rem;flex:1;}
-.tier-li{display:flex;align-items:flex-start;gap:9px;padding:.5rem 0;font-size:12px;color:var(--text2);font-weight:300;border-bottom:1px solid var(--border);}
-.tier-li:last-child{border-bottom:none;}
-.tier-card--hi .tier-li{border-color:rgba(240,96,27,.1);}
-.tier-dot{width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:6px;}
-.tier-cta{padding:1.25rem 1.5rem;border-top:1px solid var(--border);}
-.tier-card--hi .tier-cta{border-color:var(--accent-border);}
-.tier-btn{display:block;width:100%;padding:12px;background:var(--bg4);border:1px solid var(--border2);border-radius:var(--radius);font-size:12px;font-weight:600;font-family:var(--sans);letter-spacing:.02em;cursor:pointer;text-align:center;color:var(--text2);transition:all .15s;text-decoration:none;}
-.tier-btn:hover{border-color:var(--border3);color:var(--text);}
-.tier-card--hi .tier-btn{background:var(--accent);border-color:var(--accent);color:#fff;}
-.tier-card--hi .tier-btn:hover{background:var(--accent-dim);}
-
-/* ─── À LA CARTE ─── */
-.alc-note{font-size:13px;color:var(--text3);line-height:1.7;font-weight:300;margin-bottom:1.75rem;max-width:520px;}
-.alc-grid{display:grid;gap:.5rem;}
-.alc-item{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.25rem;border:1px solid var(--border2);border-radius:var(--radius-lg);background:var(--bg3);}
-.alc-name{font-size:13px;font-weight:500;color:var(--text);letter-spacing:-.01em;}
-.alc-price{font-family:var(--serif);font-size:20px;color:var(--text2);white-space:nowrap;flex-shrink:0;}
-.alc-price span{font-family:var(--sans);font-size:11px;color:var(--text3);}
-@media(max-width:560px){.alc-item{flex-direction:column;align-items:flex-start;gap:.4rem;}}
+.invest-inner{max-width:900px;margin:0 auto;padding:5rem 2rem;}
+.invest-inner h2{margin-bottom:.75rem;}
+.invest-sub{font-size:14px;color:var(--text2);font-weight:300;line-height:1.7;margin-bottom:2.5rem;max-width:500px;}
+.invest-cols{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;}
+@media(max-width:640px){.invest-cols{grid-template-columns:1fr;}}
+.ic{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--radius-xl);display:flex;flex-direction:column;overflow:hidden;}
+.ic-top{padding:1.75rem 1.5rem 1.5rem;flex:1;}
+.ic-badge{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);background:var(--accent-bg);border:1px solid var(--accent-border);border-radius:20px;padding:3px 10px;display:inline-block;margin-bottom:.85rem;}
+.ic-title{font-size:18px;font-weight:500;color:var(--text);margin-bottom:.5rem;letter-spacing:-.01em;line-height:1.25;}
+.ic-desc{font-size:12px;color:var(--text2);line-height:1.65;font-weight:300;margin-bottom:1.5rem;}
+.ic-price-block{padding:1.25rem 0;border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);margin-bottom:1.5rem;}
+.ic-price{font-family:var(--serif);font-size:46px;color:var(--text);line-height:1;}
+.ic-price span{font-family:var(--sans);font-size:14px;color:var(--text3);}
+.ic-plan{font-size:11px;color:var(--text3);margin-top:5px;letter-spacing:.02em;}
+.ic-li{display:flex;align-items:flex-start;gap:10px;padding:.5rem 0;font-size:12px;color:var(--text2);font-weight:300;border-bottom:1px solid var(--border);}
+.ic-li:last-child{border-bottom:none;}
+.ic-dot{width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px;}
+.ic-foot{padding:1.25rem 1.5rem;border-top:1px solid var(--border2);}
+.ic-btn-ghost{display:block;width:100%;padding:12px;background:transparent;border:1px solid var(--border2);border-radius:var(--radius);font-size:12px;font-weight:600;font-family:var(--sans);letter-spacing:.02em;text-align:center;color:var(--text2);transition:all .15s;text-decoration:none;}
+.ic-btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.ic-btn-fill{display:block;width:100%;padding:12px;background:var(--accent);border:1px solid var(--accent);border-radius:var(--radius);font-size:12px;font-weight:600;font-family:var(--sans);letter-spacing:.02em;text-align:center;color:#fff;transition:background .15s;text-decoration:none;}
+.ic-btn-fill:hover{background:var(--accent-dim)}
+.addon-row{padding:1rem 0;border-bottom:1px solid var(--border);}
+.addon-row:last-child{border-bottom:none;}
+.addon-row-top{display:flex;justify-content:space-between;align-items:baseline;gap:.75rem;margin-bottom:.3rem;}
+.addon-name{font-size:14px;font-weight:500;color:var(--text);line-height:1.3;}
+.addon-price{font-family:var(--serif);font-size:24px;color:var(--accent2);white-space:nowrap;flex-shrink:0;}
+.addon-price-unit{font-family:var(--sans);font-size:11px;color:var(--text3);}
+.addon-desc{font-size:12px;color:var(--text2);line-height:1.6;font-weight:300;margin-bottom:.6rem;}
+.addon-pills{display:flex;flex-wrap:wrap;gap:5px;}
+.addon-pill{font-size:10px;padding:3px 9px;background:var(--bg);border:1px solid var(--border2);border-radius:20px;color:var(--text3);}
+.invest-note{font-size:12px;color:var(--text3);margin-top:1.25rem;line-height:1.65;text-align:center;}
 
 /* ─── BOTTOM CTA ─── */
 .bottom-cta{text-align:center;padding:7rem 2rem;border-top:1px solid var(--border);position:relative;overflow:hidden;}
@@ -172,31 +166,19 @@ a{text-decoration:none;color:inherit}
   <div class="hero-left">
     <div class="hero-eyebrow">Custom Proposal</div>
     <h1>Justin <em>Thompson.</em></h1>
-    <p class="hero-desc">A done-for-you content engine for Gather Circle — strategy, scripting, posting, and analytics every month. 7 Instagram videos a week plus one longform. You record and approve. We run everything else.</p>
+    <p class="hero-desc">A two-phase buildout, starting with visual identity and content formats, then moving into a monthly retainer for a full content system.</p>
   </div>
   <div class="hero-right">
-    <div class="stats-card">
-      <div class="stats-card-top">
-        <div class="stats-card-label">Monthly output</div>
-        <div class="stats-card-title">What goes out every month.</div>
-      </div>
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-num">28<em>×</em></div>
-          <div class="stat-label">Instagram short form videos scripted & posted/mo</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">4<em>×</em></div>
-          <div class="stat-label">Longform videos scripted & posted/mo</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">100<em>%</em></div>
-          <div class="stat-label">Scripts written before you ever hit record</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">1<em>×</em></div>
-          <div class="stat-label">Monthly analytics review + strategy call</div>
-        </div>
+    <img class="hr-photo" src="http://localhost:4000/justin-photo.jpg" alt="Justin Thompson">
+    <div class="hr-fade"></div>
+    <div class="hero-right-inner">
+      <div class="hr-tag">What gets built</div>
+      <div class="hr-label">Visual identity + content engine.</div>
+      <div class="hr-chips">
+        <span class="hr-chip on">Visual identity</span>
+        <span class="hr-chip on">Content system</span>
+        <span class="hr-chip on">Full execution</span>
+        <span class="hr-chip on">Ongoing monthly retainer</span>
       </div>
     </div>
   </div>
@@ -206,98 +188,113 @@ a{text-decoration:none;color:inherit}
 
 <!-- Deliverables -->
 <div class="section" id="deliverables">
-  <div class="stag">What's included</div>
-  <h2>Every deliverable, spelled out.</h2>
+  <div class="stag">The full build</div>
+  <h2>What gets delivered — step by step.</h2>
 
-  <!-- Phase 01 -->
+  <!-- Phase 01: Visual Identity -->
   <div class="phase-header">
-    <span class="phase-num">Phase 01 — Brand Foundation</span>
-    <span class="phase-sep"></span>
-    <span class="phase-tag">One-time setup</span>
+    <span class="phase-num">Phase 01 — Visual Identity</span>
+    <div class="phase-sep"></div>
+    <span class="phase-days">One-time build</span>
   </div>
-  <p class="phase-intro">You already have a presence — we're elevating it. This phase sharpens the visual system, locks in the camera setup, and creates the production brief that every piece of content runs on going forward.</p>
+  <p class="phase-intro">Before anything gets made, we sharpen who you are and what you stand for — then build the visual identity, production system, and content workspace that everything else runs on. This is a one-time build that becomes the foundation for Phase 02 and every piece of content going forward. If you have existing brand assets that could replace any element of this phase, send them over for review.</p>
 
   <div class="deliverable">
     <div class="d-num">01</div>
     <div class="d-body">
-      <h4>Visual Identity System</h4>
-      <p>A complete visual language for Gather Circle across video, images, and carousels — color palette, type system, graphic treatment, and motion feel. Delivered as a reference doc your team and any future editors can hand off to immediately.</p>
+      <h4>Strategy & Positioning Session</h4>
+      <p>A 90-minute recorded kickoff to define your brand voice, point of view, and content angle. We leave with a written positioning document that drives every decision made after it.</p>
       <div class="d-pills">
-        <span class="pill">Color + type system</span>
-        <span class="pill">Video frame treatment</span>
-        <span class="pill">Carousel templates</span>
-        <span class="pill">Image style guide</span>
-        <span class="pill">Figma delivery</span>
+        <span class="pill">90-min Zoom</span>
+        <span class="pill">Recorded + transcribed</span>
+        <span class="pill">Positioning doc</span>
+        <span class="pill">Content angle map</span>
       </div>
     </div>
-    <div class="d-price">$800</div>
+    <div class="d-price">$500</div>
   </div>
 
   <div class="deliverable">
     <div class="d-num">02</div>
     <div class="d-body">
-      <h4>Camera Setup & Direction (FX3)</h4>
-      <p>A hands-on session dialing in your Sony FX3 for the exact look we're going for — settings, picture profile, lighting approach, framing, and environment direction. You'll know exactly how to set up before every recording session.</p>
+      <h4>Audience & Avatar Research</h4>
+      <p>We profile your ideal client — their goals, fears, and the language they use. Every script, caption, and hook gets filtered through this document.</p>
       <div class="d-pills">
-        <span class="pill">FX3 settings guide</span>
-        <span class="pill">Picture profile setup</span>
-        <span class="pill">Lighting direction</span>
-        <span class="pill">Framing & environment</span>
-        <span class="pill">Recorded walkthrough</span>
+        <span class="pill">Avatar profile doc</span>
+        <span class="pill">Pain point map</span>
+        <span class="pill">Objection library</span>
+        <span class="pill">Platform rec</span>
       </div>
     </div>
-    <div class="d-price">$400</div>
+    <div class="d-price">$350</div>
   </div>
 
   <div class="deliverable">
     <div class="d-num">03</div>
     <div class="d-body">
-      <h4>Editor Brief & Style Guide</h4>
-      <p>A complete production brief written so any video editor — now or in the future — can execute the look without back-and-forth. Covers pacing, cuts, text treatment, music tone, color grade reference, and platform-specific formatting rules.</p>
+      <h4>Visual Identity System</h4>
+      <p>Color palette, typography, and visual language for Justin's personal brand across video, images, and carousels. A Canva styleguide so every post, reel, and thumbnail looks like it came from the same world — and a clear brief your editor can execute on immediately.</p>
       <div class="d-pills">
-        <span class="pill">Edit pacing guide</span>
-        <span class="pill">Text & motion specs</span>
-        <span class="pill">Color grade reference</span>
-        <span class="pill">Platform formats</span>
-        <span class="pill">Music direction</span>
+        <span class="pill">Canva styleguide</span>
+        <span class="pill">Color + type system</span>
+        <span class="pill">Video frame treatment</span>
+        <span class="pill">Canva carousel templates</span>
+        <span class="pill">Editor brief</span>
       </div>
     </div>
-    <div class="d-price">$300</div>
+    <div class="d-price">$1,200</div>
   </div>
 
   <div class="deliverable">
     <div class="d-num">04</div>
     <div class="d-body">
-      <h4>Content Strategy & Platform Plan</h4>
-      <p>We define the content pillars, formats, and platform split that will drive Gather Circle's growth — what you talk about, how often, and where. This is the strategic foundation every script is built on.</p>
+      <h4>Cinematic Content Blueprint</h4>
+      <p>Shot angles, lighting direction, FX3 settings, and framing — plus a full 1-on-1 production session covering frame rates, audio setup, picture profiles, and editing workflow. A complete repeatable system for how you show up on camera, delivered as a recorded walkthrough you can reference before every session.</p>
       <div class="d-pills">
-        <span class="pill">Content pillars</span>
-        <span class="pill">Platform strategy</span>
-        <span class="pill">Format matrix</span>
-        <span class="pill">Posting schedule</span>
-        <span class="pill">Audience definition</span>
+        <span class="pill">FX3 settings guide</span>
+        <span class="pill">Lighting & framing</span>
+        <span class="pill">B-roll shot list</span>
+        <span class="pill">1-on-1 production session</span>
+        <span class="pill">Editing workflow guide</span>
+        <span class="pill">Recorded</span>
       </div>
     </div>
-    <div class="d-price">included</div>
+    <div class="d-price">$950</div>
   </div>
-
-  <!-- Phase 02 -->
-  <div class="phase-header">
-    <span class="phase-num">Phase 02 — Monthly Execution</span>
-    <span class="phase-sep"></span>
-    <span class="phase-tag">Ongoing / monthly</span>
-  </div>
-  <p class="phase-intro">Once the foundation is set, this is what runs every single month. The strategy is planned, scripts are written, content goes out on Instagram and wherever your longform lives. You review scripts, record, and approve — that's your full involvement. Editing can be added or handled by your own team.</p>
 
   <div class="deliverable">
     <div class="d-num">05</div>
     <div class="d-body">
+      <h4>Content System — Notion Workspace</h4>
+      <p>A fully built content workspace — pillars, idea bank, scripting templates, batching schedule, and editorial calendar. Includes a Loom walkthrough so you know exactly how to run it. Can be built in Notion or Trello — whichever you prefer.</p>
+      <div class="d-pills">
+        <span class="pill">Notion workspace</span>
+        <span class="pill">Content pillars</span>
+        <span class="pill">Scripting templates</span>
+        <span class="pill">Batching workflow</span>
+        <span class="pill">Loom walkthrough</span>
+      </div>
+    </div>
+    <div class="d-price">$600</div>
+  </div>
+
+  <!-- Phase 02: Monthly Execution -->
+  <div class="phase-header">
+    <span class="phase-num">Phase 02 — Monthly Execution</span>
+    <div class="phase-sep"></div>
+    <span class="phase-days">Ongoing / monthly</span>
+  </div>
+  <p class="phase-intro">Once the foundation is built, this is what runs every month. Scripts written, content posted, analytics reviewed. You approve scripts and record — that's your full involvement. Editing can be handled by us or your own team.</p>
+
+  <div class="deliverable">
+    <div class="d-num">06</div>
+    <div class="d-body">
       <h4>Monthly Content Calendar</h4>
-      <p>A full 4-week content plan delivered at the start of each month — topics, formats, hooks, and platform assignments for every short form and longform piece. You see the whole month before a single script is written.</p>
+      <p>A full 4-week plan delivered at the start of each month — topics, hooks, formats, and platform assignments for every short form and longform piece. You see the whole month before a single script is written.</p>
       <div class="d-pills">
         <span class="pill">4-week roadmap</span>
         <span class="pill">Topics + hooks</span>
-        <span class="pill">Platform split</span>
+        <span class="pill">Instagram + longform split</span>
         <span class="pill">Format assignment</span>
       </div>
     </div>
@@ -305,10 +302,10 @@ a{text-decoration:none;color:inherit}
   </div>
 
   <div class="deliverable">
-    <div class="d-num">06</div>
+    <div class="d-num">07</div>
     <div class="d-body">
-      <h4>Short Form Scripts — 7/week</h4>
-      <p>28 fully written short form scripts per month — hook, body, and CTA. Each script is formatted for your voice and optimized for the platform it's going to. You read them, approve them, record. That's it.</p>
+      <h4>Instagram Short Form Scripts — 7/week</h4>
+      <p>28 fully written short form scripts per month — hook, body, and CTA — written for your voice and optimized for Instagram. You read them, approve them, record. That's it.</p>
       <div class="d-pills">
         <span class="pill">28 scripts/mo</span>
         <span class="pill">Hook-first structure</span>
@@ -320,10 +317,10 @@ a{text-decoration:none;color:inherit}
   </div>
 
   <div class="deliverable">
-    <div class="d-num">07</div>
+    <div class="d-num">08</div>
     <div class="d-body">
       <h4>Longform Script — 1/week</h4>
-      <p>4 fully scripted longform videos per month — structured for depth, retention, and authority. Each script includes an outline, intro hook, talking points, and outro. Formatted for YouTube or wherever your longform lives.</p>
+      <p>4 fully scripted longform videos per month — structured for depth, retention, and authority. Each includes an outline, intro hook, talking points, and outro. Formatted for wherever your longform lives.</p>
       <div class="d-pills">
         <span class="pill">4 scripts/mo</span>
         <span class="pill">Full outline + script</span>
@@ -335,40 +332,26 @@ a{text-decoration:none;color:inherit}
   </div>
 
   <div class="deliverable">
-    <div class="d-num">08</div>
-    <div class="d-body">
-      <h4>Short Form Video Editing</h4>
-      <p>All 28 short form videos edited each month — cuts, captions, text overlays, and platform-specific formatting. Delivered ready to post with no extra steps on your end.</p>
-      <div class="d-pills">
-        <span class="pill">28 edits/mo</span>
-        <span class="pill">Captions included</span>
-        <span class="pill">Platform formatted</span>
-        <span class="pill">One revision per video</span>
-      </div>
-    </div>
-    <div class="d-price">included</div>
-  </div>
-
-  <div class="deliverable">
     <div class="d-num">09</div>
     <div class="d-body">
-      <h4>Longform Video Editing</h4>
-      <p>All 4 longform videos edited per month — full cuts, b-roll direction, chapter markers, thumbnail frame selection, and export in platform-spec. Delivered ready to upload.</p>
+      <h4>Video Editing — Short Form & Longform</h4>
+      <p>All 28 short form and 4 longform videos edited each month — cuts, captions, text overlays, platform formatting, and thumbnail frame selection. Delivered ready to post. Can be handled by your own editor using the brief we provide — or we take it off your plate entirely.</p>
       <div class="d-pills">
-        <span class="pill">4 edits/mo</span>
-        <span class="pill">B-roll direction</span>
-        <span class="pill">Chapter markers</span>
-        <span class="pill">Thumbnail frame</span>
+        <span class="pill">28 short form edits/mo</span>
+        <span class="pill">4 longform edits/mo</span>
+        <span class="pill">Captions + overlays</span>
+        <span class="pill">Platform formatted</span>
+        <span class="pill">Optional — your editor or ours</span>
       </div>
     </div>
-    <div class="d-price">included</div>
+    <div class="d-price">optional</div>
   </div>
 
   <div class="deliverable">
     <div class="d-num">10</div>
     <div class="d-body">
       <h4>Posting & Scheduling</h4>
-      <p>Everything goes out on schedule — short form and longform — with captions, hashtags, and platform optimization handled. You approve; we post.</p>
+      <p>Everything goes out on schedule across platforms — captions written, hashtags dialed, timing optimized. You approve; we post.</p>
       <div class="d-pills">
         <span class="pill">All platforms</span>
         <span class="pill">Captions written</span>
@@ -383,7 +366,7 @@ a{text-decoration:none;color:inherit}
     <div class="d-num">11</div>
     <div class="d-body">
       <h4>Monthly Analytics Report + Strategy Call</h4>
-      <p>At the end of each month, we review what worked, what didn't, and what we're adjusting. You get a clean report and a 30-minute call to align on the next month's direction.</p>
+      <p>At the end of each month, we review what performed, what didn't, and what we're adjusting. A clean report plus a 30-minute call to align on the next month's direction.</p>
       <div class="d-pills">
         <span class="pill">Performance report</span>
         <span class="pill">Top content breakdown</span>
@@ -402,100 +385,76 @@ a{text-decoration:none;color:inherit}
 <div class="invest-wrap">
   <div class="invest-inner">
     <div class="stag">Investment</div>
-    <h2>Build the engine. Run it every month.</h2>
+    <h2>Choose how you want to work.</h2>
+    <p class="invest-sub">Two clear phases — build it once, then run it every month. If anything doesn't fit, we adjust. This is a starting point, not a take-it-or-leave-it.</p>
 
-    <!-- Foundation callout -->
-    <div style="border:1px solid var(--border2);border-radius:var(--radius-xl);background:var(--bg3);padding:1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;">
-      <div>
-        <div style="font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);margin-bottom:.4rem;">One-Time Setup</div>
-        <div style="font-size:15px;font-weight:500;color:var(--text);margin-bottom:.3rem;letter-spacing:-.01em;">Brand Foundation — $1,500</div>
-        <div style="font-size:12px;color:var(--text2);font-weight:300;line-height:1.55;">Visual identity system · FX3 camera setup · Editor brief · Content strategy. Paid once before month one.</div>
+    <div class="invest-cols">
+
+      <!-- Left: One-time build -->
+      <div class="ic">
+        <div class="ic-top">
+          <div class="ic-badge">One-Time Build</div>
+          <div class="ic-title">Visual identity + content foundation.</div>
+          <div class="ic-desc">Everything you need to show up with a clear brand and a system that runs. Built once — used as the foundation for every piece of content going forward.</div>
+          <div class="ic-price-block">
+            <div class="ic-price">$3,600<span> total</span></div>
+            <div class="ic-plan">or $1,800 × 2 — work starts day one</div>
+          </div>
+          <div class="ic-li"><div class="ic-dot"></div>Strategy & positioning session</div>
+          <div class="ic-li"><div class="ic-dot"></div>Audience & avatar research</div>
+          <div class="ic-li"><div class="ic-dot"></div>Visual identity system — Canva styleguide, templates, editor brief</div>
+          <div class="ic-li"><div class="ic-dot"></div>Cinematic Content Blueprint — FX3 setup + full production session</div>
+          <div class="ic-li"><div class="ic-dot"></div>Content system — Notion or Trello workspace + Loom walkthrough</div>
+        </div>
+        <div class="ic-foot">
+          <a href="https://wa.me/16208752217" target="_blank" class="ic-btn-ghost">Let's talk →</a>
+        </div>
       </div>
-      <a href="https://wa.me/16208752217" target="_blank" class="tier-btn" style="white-space:nowrap;min-width:120px;">Let's talk →</a>
+
+      <!-- Right: Monthly retainer -->
+      <div class="ic">
+        <div class="ic-top">
+          <div class="ic-badge">Monthly Retainer</div>
+          <div class="ic-title">Monthly Execution Engine</div>
+          <div class="ic-desc">Layer on what you need. Each service is standalone and adjustable month to month — no commitment beyond the 3-month minimum.</div>
+
+          <div class="addon-row">
+            <div class="addon-row-top">
+              <div class="addon-name">Core Retainer</div>
+              <div class="addon-price">$2,500<span class="addon-price-unit">/mo</span></div>
+            </div>
+            <div class="addon-desc">28 short form scripts + 4 longform scripts per month, monthly content calendar, posting & scheduling across all platforms, and a monthly analytics report + strategy call.</div>
+            <div class="addon-pills">
+              <span class="addon-pill">28 scripts/mo</span>
+              <span class="addon-pill">4 longform/mo</span>
+              <span class="addon-pill">Calendar</span>
+              <span class="addon-pill">Posting included</span>
+              <span class="addon-pill">Strategy call</span>
+            </div>
+          </div>
+
+          <div class="addon-row">
+            <div class="addon-row-top">
+              <div class="addon-name">Video Editing — Short Form & Longform</div>
+              <div class="addon-price">$1,500<span class="addon-price-unit">/mo</span></div>
+            </div>
+            <div class="addon-desc">28 short form edits + 4 longform edits per month. Cuts, captions, text overlays, platform formatting — delivered ready to post. Your editor or ours.</div>
+            <div class="addon-pills">
+              <span class="addon-pill">28 short form/mo</span>
+              <span class="addon-pill">4 longform/mo</span>
+              <span class="addon-pill">Captions + overlays</span>
+              <span class="addon-pill">Platform formatted</span>
+            </div>
+          </div>
+        </div>
+        <div class="ic-foot">
+          <a href="https://wa.me/16208752217" target="_blank" class="ic-btn-fill">Ask about the retainer →</a>
+        </div>
+      </div>
+
     </div>
 
-    <div class="tier-grid">
-
-      <!-- Core -->
-      <div class="tier-card">
-        <div class="tier-top">
-          <div class="tier-badge">Monthly — Core</div>
-          <div class="tier-name">Strategy, Scripts & Distribution</div>
-          <div class="tier-desc">We plan, script, post, and analyze. Your editor handles the cutting — or we can add that on.</div>
-        </div>
-        <div class="tier-price-area">
-          <div class="tier-price">$2,500<span>/mo</span></div>
-          <div class="tier-plan">Month-to-month after 3-month minimum</div>
-        </div>
-        <div class="tier-features">
-          <div class="tier-li"><div class="tier-dot"></div>Monthly content calendar</div>
-          <div class="tier-li"><div class="tier-dot"></div>28 Instagram short form scripts/mo</div>
-          <div class="tier-li"><div class="tier-dot"></div>4 longform scripts/mo</div>
-          <div class="tier-li"><div class="tier-dot"></div>Posting & scheduling — all platforms</div>
-          <div class="tier-li"><div class="tier-dot"></div>Monthly analytics report + strategy call</div>
-        </div>
-        <div class="tier-cta">
-          <a href="https://wa.me/16208752217" target="_blank" class="tier-btn">Let's talk →</a>
-        </div>
-      </div>
-
-      <!-- Full -->
-      <div class="tier-card tier-card--hi">
-        <div class="tier-top">
-          <div class="tier-badge">Monthly — Full</div>
-          <div class="tier-name">Everything, Including Editing</div>
-          <div class="tier-desc">Scripts, editing, posting, analytics — the full operation. You record and approve. We handle the rest.</div>
-        </div>
-        <div class="tier-price-area">
-          <div class="tier-price">$4,000<span>/mo</span></div>
-          <div class="tier-plan">Month-to-month after 3-month minimum</div>
-        </div>
-        <div class="tier-features">
-          <div class="tier-li"><div class="tier-dot"></div>Everything in Core</div>
-          <div class="tier-li"><div class="tier-dot"></div>28 Instagram short form edits/mo</div>
-          <div class="tier-li"><div class="tier-dot"></div>4 longform edits/mo</div>
-          <div class="tier-li"><div class="tier-dot"></div>Captions, text overlays & platform formatting</div>
-          <div class="tier-li"><div class="tier-dot"></div>Thumbnail frame selection for longform</div>
-        </div>
-        <div class="tier-cta">
-          <a href="https://wa.me/16208752217" target="_blank" class="tier-btn">Let's talk →</a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- À la carte -->
-    <div style="margin-top:3rem;">
-      <div class="stag">À la carte</div>
-      <h2 style="font-size:clamp(20px,2.5vw,26px);margin-bottom:.75rem;">Only want part of it?</h2>
-      <p class="alc-note">Pick the pieces that make sense. Each service can be added standalone or layered on top of any existing arrangement.</p>
-      <div class="alc-grid">
-        <div class="alc-item">
-          <div class="alc-name">Short form scripting only (28/mo)</div>
-          <div class="alc-price">$900<span>/mo</span></div>
-        </div>
-        <div class="alc-item">
-          <div class="alc-name">Longform scripting only (4/mo)</div>
-          <div class="alc-price">$600<span>/mo</span></div>
-        </div>
-        <div class="alc-item">
-          <div class="alc-name">Short form editing only (28/mo)</div>
-          <div class="alc-price">$1,400<span>/mo</span></div>
-        </div>
-        <div class="alc-item">
-          <div class="alc-name">Longform editing only (4/mo)</div>
-          <div class="alc-price">$800<span>/mo</span></div>
-        </div>
-        <div class="alc-item">
-          <div class="alc-name">Posting & scheduling</div>
-          <div class="alc-price">$350<span>/mo</span></div>
-        </div>
-        <div class="alc-item">
-          <div class="alc-name">Monthly analytics + strategy call</div>
-          <div class="alc-price">$250<span>/mo</span></div>
-        </div>
-      </div>
-    </div>
+    <div class="invest-note">Don't need editing? Or want to start with just the build? Let's figure out what makes sense.</div>
 
   </div>
 </div>
@@ -503,7 +462,7 @@ a{text-decoration:none;color:inherit}
 <!-- Bottom CTA -->
 <div class="bottom-cta" id="contact">
   <h2>Ready to build the engine?</h2>
-  <p>Let's talk through what makes sense for Gather Circle and get month one on the calendar.</p>
+  <p>Let's talk through what fits and get the build on the calendar.</p>
   <a href="https://wa.me/16208752217" target="_blank" class="reply-btn">
     Let's talk on WhatsApp <span class="arrow">→</span>
   </a>
