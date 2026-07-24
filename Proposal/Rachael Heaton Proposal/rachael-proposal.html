@@ -73,6 +73,9 @@ a{text-decoration:none;color:inherit}
 .d-num{font-family:var(--serif);font-size:13px;color:var(--text3);padding-top:3px;}
 .d-body h4{font-size:15px;font-weight:500;color:var(--text);margin-bottom:.35rem;letter-spacing:-.01em;}
 .d-body p{font-size:13px;color:var(--text2);line-height:1.7;font-weight:300;}
+.d-body ul{list-style:none;padding:0;margin:.55rem 0 0;}
+.d-body ul li{position:relative;padding-left:14px;font-size:13px;color:var(--text2);line-height:1.7;font-weight:300;}
+.d-body ul li::before{content:'';position:absolute;left:0;top:9px;width:3px;height:3px;border-radius:50%;background:var(--accent);}
 .d-price{font-family:var(--serif);font-size:18px;color:var(--text3);white-space:nowrap;text-align:right;padding-top:2px;}
 .d-price.inc{font-size:12px;font-family:var(--sans);letter-spacing:.06em;color:var(--green);text-transform:uppercase;}
 @media(max-width:560px){.deliverable{grid-template-columns:32px 1fr}.d-price{display:none}}
@@ -137,7 +140,7 @@ a{text-decoration:none;color:inherit}
 <div class="section" id="deliverables">
   <div class="stag">The full build</div>
   <h2>What gets delivered &mdash; step by step.</h2>
-  <p class="section-intro">An <strong>8-week plan with 8 weekly calls throughout.</strong> I build the brand foundation, install the content system, and set the launch strategy. You show up, shoot, and publish.</p>
+  <p class="section-intro">An <strong>8-week plan with 8 weekly calls throughout.</strong> I build the brand, install the system, and set the launch strategy. You show up, shoot, and publish.</p>
 
   <!-- Phase 01: Brand Strategy -->
   <div class="phase-header">
@@ -145,13 +148,18 @@ a{text-decoration:none;color:inherit}
     <div class="phase-sep"></div>
     <span class="phase-days">Weeks 1&ndash;2</span>
   </div>
-  <p class="phase-intro">Before anything gets made, we install the brand foundation. Every piece of content built after this comes from the same source of truth.</p>
+  <p class="phase-intro">Install the brand foundation before anything else gets made.</p>
 
   <div class="deliverable">
     <div class="d-num">01</div>
     <div class="d-body">
       <h4>Brand Blueprint</h4>
-      <p>The first exercise you&rsquo;ll run through. A guided intake that pulls positioning, avatar, voice, pillars, and strategic clarity out of your head into a shared drive we both reference forever. The source of truth for you, me, your editors, and your future hires.</p>
+      <p>The first exercise you&rsquo;ll run through &mdash; a guided intake that becomes your brand foundation.</p>
+      <ul>
+        <li>Positioning, avatar, voice, pillars</li>
+        <li>Strategic clarity pulled from your head</li>
+        <li>Shared drive we both reference</li>
+      </ul>
     </div>
     <div class="d-price">$500</div>
   </div>
@@ -160,7 +168,12 @@ a{text-decoration:none;color:inherit}
     <div class="d-num">02</div>
     <div class="d-body">
       <h4>Strategy &amp; Positioning Session</h4>
-      <p>A 90-minute recorded session to define your brand voice, point of view, and content angle across your lanes: agency, wellness, and comms consultancy. We leave with a written positioning document that drives every decision after it.</p>
+      <p>90-minute recorded working session.</p>
+      <ul>
+        <li>Brand voice + point of view</li>
+        <li>Content angle mapped across your niches</li>
+        <li>Written positioning doc</li>
+      </ul>
     </div>
     <div class="d-price">$500</div>
   </div>
@@ -169,7 +182,12 @@ a{text-decoration:none;color:inherit}
     <div class="d-num">03</div>
     <div class="d-body">
       <h4>Competitor Research</h4>
-      <p>We pull the top 5&ndash;7 competitors across your lanes, break down what they post, what&rsquo;s working, and what they miss. Every hook, caption, and CTA gets filtered through this document.</p>
+      <p>Top 10 competitors in your space, broken down.</p>
+      <ul>
+        <li>What they post + what&rsquo;s working</li>
+        <li>Hook and format library</li>
+        <li>Gaps you can own</li>
+      </ul>
     </div>
     <div class="d-price">$350</div>
   </div>
@@ -180,13 +198,18 @@ a{text-decoration:none;color:inherit}
     <div class="phase-sep"></div>
     <span class="phase-days">Weeks 3&ndash;4</span>
   </div>
-  <p class="phase-intro">With the strategy set, we build the system and the visual language. This is where your look and your engine get installed.</p>
+  <p class="phase-intro">The system and the look get installed.</p>
 
   <div class="deliverable">
     <div class="d-num">04</div>
     <div class="d-body">
-      <h4>AI-Powered Content System &middot; FrictionlessOS&trade;</h4>
-      <p>The full content OS installed on your machine. Audit competitors, capture ideas, build hooks, script videos, and generate carousels &mdash; all in one workflow tuned to your voice. Loom walkthrough included.</p>
+      <h4>FrictionlessOS&trade; &middot; AI-Powered Content System</h4>
+      <p>The full content OS installed on your machine, tuned to your voice.</p>
+      <ul>
+        <li>Audit, capture, hook, script &mdash; one workflow</li>
+        <li>Voice-tuned prompts</li>
+        <li>Loom walkthrough included</li>
+      </ul>
     </div>
     <div class="d-price">$497</div>
   </div>
@@ -194,8 +217,14 @@ a{text-decoration:none;color:inherit}
   <div class="deliverable">
     <div class="d-num">05</div>
     <div class="d-body">
-      <h4>Visual Identity System + 5 Reference Edits</h4>
-      <p>Color palette, typography, filters, and visual language. Delivered by doing &mdash; 2 carousels + 3 videos I personally edit as the reference set your team can use to match every future post.</p>
+      <h4>Visual Identity System</h4>
+      <p>Your look, delivered as a styleguide.</p>
+      <ul>
+        <li>Color palette, typography, filters</li>
+        <li>2 carousels + 3 videos edited by me</li>
+        <li>Premiere Pro project files + assets</li>
+        <li>Canva templates with the new look</li>
+      </ul>
     </div>
     <div class="d-price">$1,500</div>
   </div>
@@ -204,7 +233,12 @@ a{text-decoration:none;color:inherit}
     <div class="d-num">06</div>
     <div class="d-body">
       <h4>Cinematic Storyteller&rsquo;s Guide</h4>
-      <p>Shot angles, framing, lighting, and environment direction. A repeatable visual recipe built to translate your existing creative eye into a consistent production system your team can follow.</p>
+      <p>Full access to <a href="https://guide.fscreative.live" target="_blank" style="color:var(--accent2);border-bottom:1px solid var(--accent-border);">guide.fscreative.live</a> &mdash; the video course on cinematic content.</p>
+      <ul>
+        <li>Shot angles, framing, lighting</li>
+        <li>Environment and location direction</li>
+        <li>Ongoing updates as new videos drop</li>
+      </ul>
     </div>
     <div class="d-price">$400</div>
   </div>
@@ -215,13 +249,19 @@ a{text-decoration:none;color:inherit}
     <div class="phase-sep"></div>
     <span class="phase-days">Weeks 5&ndash;8</span>
   </div>
-  <p class="phase-intro">The brand is built and the system is running. Now we plan the launch and the strategy that keeps it working long after we&rsquo;re done.</p>
+  <p class="phase-intro">Plan the launch and the strategy that keeps working after we wrap.</p>
 
   <div class="deliverable">
     <div class="d-num">07</div>
     <div class="d-body">
-      <h4>30-Day Content Calendar + Launch Strategy</h4>
-      <p>Your first 30 posts mapped across content buckets: podcast clips, cinematic reels, carousels, and green-screen. Built around a rotating lead magnet strategy so every post drives toward an email capture without spending on ads. Includes a Hook Engine trained on your niche and 15 scripts written in your voice, ready to record.</p>
+      <h4>Content Calendar + Launch Strategy</h4>
+      <p>30 posts mapped, ready to record. Built around a rotating lead magnet strategy that drives every post toward an email capture.</p>
+      <ul>
+        <li>Rotating lead magnet strategy</li>
+        <li>15 scripts written in your voice</li>
+        <li>Hook Engine trained on your niche</li>
+        <li>Camera + gear list matched to your budget</li>
+      </ul>
     </div>
     <div class="d-price">$850</div>
   </div>
@@ -229,17 +269,8 @@ a{text-decoration:none;color:inherit}
   <div class="deliverable">
     <div class="d-num">08</div>
     <div class="d-body">
-      <h4>Camera &amp; Gear List</h4>
-      <p>Full recommended kit within your budget. Body, lens, filters, iPhone accessories. Specific recs, not generic &mdash; matched to what you&rsquo;ll actually shoot.</p>
-    </div>
-    <div class="d-price inc">Included</div>
-  </div>
-
-  <div class="deliverable">
-    <div class="d-num">09</div>
-    <div class="d-body">
       <h4>Day 90 Wrap-Up Call</h4>
-      <p>A follow-up call 30 days after we wrap the 8-week engagement. We audit what&rsquo;s working, what&rsquo;s not, and map what comes next.</p>
+      <p>Follow-up call 30 days after we wrap. Audit performance, adjust plan, map what&rsquo;s next.</p>
     </div>
     <div class="d-price inc">Included</div>
   </div>
@@ -258,7 +289,7 @@ a{text-decoration:none;color:inherit}
       <div class="tier-top">
         <div class="tier-badge">8-Week Custom Build</div>
         <div class="tier-name">Done-With-You</div>
-        <div class="tier-desc">All 9 deliverables across 8 weeks. Two weeks on brand strategy, two weeks on content and identity, four weeks on launch &mdash; with weekly calls throughout.</div>
+        <div class="tier-desc">All 8 deliverables across 8 weeks. Two weeks on brand strategy, two weeks on content and identity, four weeks on launch &mdash; with weekly calls throughout.</div>
       </div>
       <div class="tier-price-area">
         <div class="tier-price">$3,000<span> total</span></div>
@@ -266,14 +297,13 @@ a{text-decoration:none;color:inherit}
       </div>
       <div class="tier-features">
         <div class="tier-features-title">What&rsquo;s included</div>
-        <div class="tier-li"><div class="tier-dot"></div>All 9 deliverables</div>
+        <div class="tier-li"><div class="tier-dot"></div>All 8 deliverables</div>
         <div class="tier-li"><div class="tier-dot"></div>8 weekly 30-min coaching calls</div>
         <div class="tier-li"><div class="tier-dot"></div>Async DM support throughout</div>
-        <div class="tier-li"><div class="tier-dot"></div>5 reference edits by me (2 carousels + 3 videos)</div>
-        <div class="tier-li"><div class="tier-dot"></div>15 scripts written in your voice</div>
-        <div class="tier-li"><div class="tier-dot"></div>Rotating lead magnet launch strategy</div>
+        <div class="tier-li"><div class="tier-dot"></div>Visual identity styleguide + 5 edited references</div>
+        <div class="tier-li"><div class="tier-dot"></div>Premiere Pro + Canva templates</div>
+        <div class="tier-li"><div class="tier-dot"></div>15 scripts + rotating lead magnet strategy</div>
         <div class="tier-li"><div class="tier-dot"></div>Fully remote, timezone-friendly</div>
-        <div class="tier-li"><div class="tier-dot"></div>You own every system, template, and asset</div>
         <div class="tier-li"><div class="tier-dot"></div>Day 90 wrap-up call included</div>
       </div>
       <div class="tier-cta">
@@ -287,7 +317,7 @@ a{text-decoration:none;color:inherit}
 
 <!-- Bottom CTA -->
 <div class="bottom-cta" id="contact">
-  <h2>Ready to build<br><em style="font-style:italic">something real?</em></h2>
+  <h2>Ready to build<br><em style="font-style:italic">your premium brand?</em></h2>
   <p>Book a call and we&rsquo;ll get the kickoff on the calendar. Work starts within the week.</p>
   <a href="https://calendly.com/golocalgroup/brand-strategy" target="_blank" class="reply-btn">
     Let&rsquo;s talk <span class="arrow">&rarr;</span>
