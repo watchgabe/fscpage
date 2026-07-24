@@ -33,7 +33,8 @@
 }
 
 html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;font-size:15px;transition:background .3s,color .3s;-webkit-font-smoothing:antialiased;}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;font-size:16px;transition:background .3s,color .3s;-webkit-font-smoothing:antialiased;}
+@media(max-width:600px){body{font-size:16px}}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.032;}
 a{text-decoration:none;color:inherit}
 
@@ -51,7 +52,7 @@ a{text-decoration:none;color:inherit}
 .nav-cta:hover{background:var(--accent-dim)}
 
 /* ─── STAG / SHARED ─── */
-.stag{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent2);margin-bottom:1.1rem;display:inline-flex;align-items:center;gap:8px;}
+.stag{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent2);margin-bottom:1.1rem;display:inline-flex;align-items:center;gap:8px;}
 .stag::before{content:'';display:block;width:14px;height:1px;background:var(--accent)}
 .section h2,.invest-inner h2{font-family:var(--serif);font-size:clamp(26px,3.5vw,38px);font-weight:400;color:var(--text);line-height:1.2;margin-bottom:1.25rem;letter-spacing:-.02em;}
 
@@ -61,24 +62,24 @@ a{text-decoration:none;color:inherit}
 /* ─── DELIVERABLES ─── */
 .section{max-width:760px;margin:0 auto;padding:5rem 2rem;}
 .section h2{margin-bottom:1rem;}
-.section-intro{font-size:14px;color:var(--text2);line-height:1.7;font-weight:300;max-width:620px;margin-bottom:2.5rem;}
+.section-intro{font-size:16px;color:var(--text2);line-height:1.7;font-weight:300;max-width:620px;margin-bottom:2.5rem;}
 .section-intro strong{color:var(--text);font-weight:500;}
 .phase-header{padding:2.25rem 0 0;display:flex;align-items:center;gap:12px;}
-.phase-num{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent2);white-space:nowrap;}
+.phase-num{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent2);white-space:nowrap;}
 .phase-sep{flex:1;height:1px;background:var(--border2);}
-.phase-days{font-size:10px;color:var(--text3);letter-spacing:.06em;white-space:nowrap;}
-.phase-intro{font-size:13px;color:var(--text3);line-height:1.7;font-weight:300;padding:.65rem 0 1rem;max-width:560px;}
+.phase-days{font-size:11px;color:var(--text3);letter-spacing:.06em;white-space:nowrap;}
+.phase-intro{font-size:15px;color:var(--text3);line-height:1.7;font-weight:300;padding:.75rem 0 1rem;max-width:560px;}
 .deliverable{display:grid;grid-template-columns:44px 1fr auto;gap:0 1.25rem;align-items:start;padding:1.5rem 0;border-bottom:1px solid var(--border);}
 .deliverable:first-of-type{border-top:1px solid var(--border)}
-.d-num{font-family:var(--serif);font-size:13px;color:var(--text3);padding-top:3px;}
-.d-body h4{font-size:15px;font-weight:500;color:var(--text);margin-bottom:.35rem;letter-spacing:-.01em;}
-.d-body p{font-size:13px;color:var(--text2);line-height:1.7;font-weight:300;}
-.d-body ul{list-style:none;padding:0;margin:.55rem 0 0;}
-.d-body ul li{position:relative;padding-left:14px;font-size:13px;color:var(--text2);line-height:1.7;font-weight:300;}
-.d-body ul li::before{content:'';position:absolute;left:0;top:9px;width:3px;height:3px;border-radius:50%;background:var(--accent);}
-.d-price{font-family:var(--serif);font-size:18px;color:var(--text3);white-space:nowrap;text-align:right;padding-top:2px;}
-.d-price.inc{font-size:12px;font-family:var(--sans);letter-spacing:.06em;color:var(--green);text-transform:uppercase;}
-@media(max-width:560px){.deliverable{grid-template-columns:32px 1fr}.d-price{display:none}}
+.d-num{font-family:var(--serif);font-size:14px;color:var(--text3);padding-top:3px;}
+.d-body h4{font-size:17px;font-weight:500;color:var(--text);margin-bottom:.4rem;letter-spacing:-.01em;}
+.d-body p{font-size:15px;color:var(--text2);line-height:1.7;font-weight:300;}
+.d-body ul{list-style:none;padding:0;margin:.6rem 0 0;}
+.d-body ul li{position:relative;padding-left:15px;font-size:15px;color:var(--text2);line-height:1.7;font-weight:300;}
+.d-body ul li::before{content:'';position:absolute;left:0;top:10px;width:4px;height:4px;border-radius:50%;background:var(--accent);}
+.d-price{font-family:var(--serif);font-size:20px;color:var(--text3);white-space:nowrap;text-align:right;padding-top:2px;}
+.d-price.inc{font-size:13px;font-family:var(--sans);letter-spacing:.06em;color:var(--green);text-transform:uppercase;}
+@media(max-width:560px){.deliverable{grid-template-columns:32px 1fr}.d-price{display:none}.section-intro{font-size:16px}.d-body h4{font-size:18px}.d-body p{font-size:16px}.d-body ul li{font-size:16px}.phase-intro{font-size:15px}}
 
 /* ─── SINGLE TIER PRICING ─── */
 .invest-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2);}
@@ -87,18 +88,18 @@ a{text-decoration:none;color:inherit}
 .tier-single{background:var(--bg3);border:1px solid var(--accent-border);border-radius:var(--radius-xl);overflow:hidden;background:rgba(240,96,27,.04);}
 .tier-top{padding:1.75rem 1.75rem 1.5rem;border-bottom:1px solid var(--accent-border);}
 .tier-badge{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);background:var(--accent-bg);border:1px solid var(--accent-border);border-radius:20px;padding:3px 8px;display:inline-block;margin-bottom:.75rem;}
-.tier-name{font-size:17px;font-weight:500;color:var(--text);margin-bottom:.4rem;letter-spacing:-.01em;}
-.tier-desc{font-size:13px;color:var(--text2);line-height:1.65;font-weight:300;}
+.tier-name{font-size:19px;font-weight:500;color:var(--text);margin-bottom:.5rem;letter-spacing:-.01em;}
+.tier-desc{font-size:15px;color:var(--text2);line-height:1.65;font-weight:300;}
 .tier-price-area{padding:1.5rem 1.75rem;border-bottom:1px solid var(--accent-border);display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;}
-.tier-price{font-family:var(--serif);font-size:52px;color:var(--text);line-height:1;}
-.tier-price span{font-family:var(--sans);font-size:13px;color:var(--text3);}
-.tier-plan{font-size:12px;color:var(--text3);letter-spacing:.02em;text-align:right;line-height:1.5;}
+.tier-price{font-family:var(--serif);font-size:56px;color:var(--text);line-height:1;}
+.tier-price span{font-family:var(--sans);font-size:14px;color:var(--text3);}
+.tier-plan{font-size:13px;color:var(--text3);letter-spacing:.02em;text-align:right;line-height:1.5;}
 .tier-plan strong{color:var(--text2);font-weight:500;}
 .tier-features{padding:1.25rem 1.75rem;}
-.tier-features-title{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--text3);margin-bottom:.85rem;}
-.tier-li{display:flex;align-items:flex-start;gap:10px;padding:.55rem 0;font-size:13px;color:var(--text2);font-weight:300;border-bottom:1px solid var(--border);}
+.tier-features-title{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--text3);margin-bottom:.85rem;}
+.tier-li{display:flex;align-items:flex-start;gap:10px;padding:.6rem 0;font-size:15px;color:var(--text2);font-weight:300;border-bottom:1px solid var(--border);}
 .tier-li:last-child{border-bottom:none;}
-.tier-dot{width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px;}
+.tier-dot{width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:9px;}
 .tier-cta{padding:1.5rem 1.75rem;border-top:1px solid var(--accent-border);}
 .tier-btn{display:block;width:100%;padding:14px;background:var(--accent);border:1px solid var(--accent);border-radius:var(--radius);font-size:12px;font-weight:600;font-family:var(--sans);letter-spacing:.04em;cursor:pointer;text-align:center;color:#fff;transition:background .15s;text-decoration:none;text-transform:uppercase;}
 .tier-btn:hover{background:var(--accent-dim);border-color:var(--accent-dim);}
@@ -107,12 +108,12 @@ a{text-decoration:none;color:inherit}
 .bottom-cta{text-align:center;padding:7rem 2rem;border-top:1px solid var(--border);position:relative;overflow:hidden;}
 .bottom-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(240,96,27,.06) 0%,transparent 65%);pointer-events:none;}
 .bottom-cta h2{font-family:var(--serif);font-size:clamp(30px,5vw,54px);font-weight:400;color:var(--text);margin-bottom:1rem;letter-spacing:-.03em;line-height:1.1;position:relative;z-index:1;}
-.bottom-cta p{font-size:15px;color:var(--text2);margin:0 auto 2.5rem;max-width:420px;line-height:1.7;font-weight:300;position:relative;z-index:1;}
-.reply-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 36px;background:var(--accent);color:#fff;border-radius:var(--radius-lg);font-size:14px;font-weight:600;font-family:var(--sans);letter-spacing:.01em;cursor:pointer;transition:background .15s;position:relative;z-index:1;border:none;}
+.bottom-cta p{font-size:16px;color:var(--text2);margin:0 auto 2.5rem;max-width:440px;line-height:1.7;font-weight:300;position:relative;z-index:1;}
+.reply-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 36px;background:var(--accent);color:#fff;border-radius:var(--radius-lg);font-size:15px;font-weight:600;font-family:var(--sans);letter-spacing:.01em;cursor:pointer;transition:background .15s;position:relative;z-index:1;border:none;}
 .reply-btn:hover{background:var(--accent-dim)}
 .arrow{display:inline-block;transition:transform .2s;}
 .reply-btn:hover .arrow{transform:translateX(4px)}
-.cta-note{font-size:12px;color:var(--text3);margin-top:1rem;position:relative;z-index:1;}
+.cta-note{font-size:13px;color:var(--text3);margin-top:1rem;position:relative;z-index:1;}
 
 /* ─── FOOTER ─── */
 .foot{text-align:center;padding:2rem;font-size:11px;color:var(--text3);border-top:1px solid var(--border);letter-spacing:.04em;}
@@ -140,7 +141,7 @@ a{text-decoration:none;color:inherit}
 <div class="section" id="deliverables">
   <div class="stag">The full build</div>
   <h2>What gets delivered &mdash; step by step.</h2>
-  <p class="section-intro"><strong>8 weeks to install a premium brand and the content system that runs it.</strong> Weekly calls throughout. Everything we build is yours to run forever.</p>
+  <p class="section-intro"><strong>8 weeks to install a premium brand and the content system that runs it.</strong> 8 hour-long mentorship calls throughout. Everything we build is yours to run forever.</p>
 
   <!-- Phase 01: Brand Strategy -->
   <div class="phase-header">
@@ -270,6 +271,20 @@ a{text-decoration:none;color:inherit}
   <div class="deliverable">
     <div class="d-num">08</div>
     <div class="d-body">
+      <h4>Weekly Mentorship Calls</h4>
+      <p>8 hour-long 1:1 calls, one per week across the full 8-week build.</p>
+      <ul>
+        <li>Direct 1:1 mentorship</li>
+        <li>Performance review + direction</li>
+        <li>Recorded with written follow-up notes</li>
+      </ul>
+    </div>
+    <div class="d-price">$2,000</div>
+  </div>
+
+  <div class="deliverable">
+    <div class="d-num">09</div>
+    <div class="d-body">
       <h4>Day 90 Wrap-Up Call</h4>
       <p>Follow-up call 30 days after we wrap. Audit performance, adjust plan, map what&rsquo;s next.</p>
     </div>
@@ -290,7 +305,7 @@ a{text-decoration:none;color:inherit}
       <div class="tier-top">
         <div class="tier-badge">8-Week Custom Build</div>
         <div class="tier-name">Done-With-You</div>
-        <div class="tier-desc">All 8 deliverables across 8 weeks. Two weeks on brand strategy, two weeks on content and identity, four weeks on launch &mdash; with weekly calls throughout.</div>
+        <div class="tier-desc">All 9 deliverables across 8 weeks. Two weeks on brand strategy, two weeks on content and identity, four weeks on launch, with 8 hour-long mentorship calls throughout.</div>
       </div>
       <div class="tier-price-area">
         <div class="tier-price">$3,000<span> total</span></div>
