@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Proposal — FSCreative™ × Rachael</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#080808;--bg2:#0f0f0f;--bg3:#161616;--bg4:#1c1c1c;
+  --border:#1e1e1e;--border2:#282828;--border3:#333;
+  --text:#f0ede8;--text2:#888880;--text3:#444440;
+  --accent:#F0601B;--accent2:#ff7a3e;--accent-dim:#c24c14;
+  --accent-bg:rgba(240,96,27,.07);--accent-border:rgba(240,96,27,.18);
+  --green:#5DCAA5;--green-bg:rgba(93,202,165,.07);--green-border:rgba(93,202,165,.2);
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --radius:6px;--radius-lg:10px;--radius-xl:16px;
+}
+
+.lm{
+  --bg:#f5f3ef;--bg2:#ffffff;--bg3:#edeae4;--bg4:#e4e1da;
+  --border:#e0dcd4;--border2:#d0ccc4;--border3:#bbb8b0;
+  --text:#0c0b09;--text2:#706c64;--text3:#aaa8a0;
+  --accent:#d94f0e;--accent2:#F0601B;--accent-dim:#b84009;
+  --accent-bg:rgba(217,79,14,.06);--accent-border:rgba(217,79,14,.2);
+  --green:#0f8060;--green-bg:rgba(15,128,96,.06);--green-border:rgba(15,128,96,.2);
+}
+
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;font-size:15px;transition:background .3s,color .3s;-webkit-font-smoothing:antialiased;}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.032;}
+a{text-decoration:none;color:inherit}
+
+/* ─── NAV ─── */
+.nav-wrap{position:sticky;top:0;z-index:100;background:rgba(8,8,8,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.lm .nav-wrap{background:rgba(245,243,239,.9)}
+.nav{display:flex;align-items:center;justify-content:space-between;max-width:1080px;margin:0 auto;padding:.9rem 2rem;gap:12px;}
+.nav-logo img{height:24px;width:auto;display:block;}
+.lm .nav-logo img{filter:invert(1);}
+.nav-r{display:flex;align-items:center;gap:14px}
+.mode-btn{width:36px;height:20px;border-radius:10px;background:var(--bg3);border:1px solid var(--border2);cursor:pointer;position:relative;flex-shrink:0;}
+.mode-knob{width:14px;height:14px;border-radius:50%;background:var(--accent2);position:absolute;top:2px;left:2px;transition:transform .22s cubic-bezier(.4,0,.2,1);}
+.lm .mode-knob{transform:translateX(16px)}
+.nav-cta{padding:8px 20px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius);font-size:12px;font-weight:600;font-family:var(--sans);letter-spacing:.02em;cursor:pointer;transition:background .15s;white-space:nowrap;}
+.nav-cta:hover{background:var(--accent-dim)}
+
+/* ─── STAG / SHARED ─── */
+.stag{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent2);margin-bottom:1.1rem;display:inline-flex;align-items:center;gap:8px;}
+.stag::before{content:'';display:block;width:14px;height:1px;background:var(--accent)}
+.section h2,.invest-inner h2{font-family:var(--serif);font-size:clamp(26px,3.5vw,38px);font-weight:400;color:var(--text);line-height:1.2;margin-bottom:1.25rem;letter-spacing:-.02em;}
+
+/* ─── DIVIDER ─── */
+.divider{height:1px;background:var(--border);max-width:1080px;margin:0 auto}
+
+/* ─── DELIVERABLES ─── */
+.section{max-width:760px;margin:0 auto;padding:5rem 2rem;}
+.section h2{margin-bottom:1rem;}
+.section-intro{font-size:14px;color:var(--text2);line-height:1.7;font-weight:300;max-width:620px;margin-bottom:2.5rem;}
+.section-intro strong{color:var(--text);font-weight:500;}
+.phase-header{padding:2.25rem 0 0;display:flex;align-items:center;gap:12px;}
+.phase-num{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent2);white-space:nowrap;}
+.phase-sep{flex:1;height:1px;background:var(--border2);}
+.phase-days{font-size:10px;color:var(--text3);letter-spacing:.06em;white-space:nowrap;}
+.phase-intro{font-size:13px;color:var(--text3);line-height:1.7;font-weight:300;padding:.65rem 0 1rem;max-width:560px;}
+.deliverable{display:grid;grid-template-columns:44px 1fr auto;gap:0 1.25rem;align-items:start;padding:1.5rem 0;border-bottom:1px solid var(--border);}
+.deliverable:first-of-type{border-top:1px solid var(--border)}
+.d-num{font-family:var(--serif);font-size:13px;color:var(--text3);padding-top:3px;}
+.d-body h4{font-size:15px;font-weight:500;color:var(--text);margin-bottom:.35rem;letter-spacing:-.01em;}
+.d-body p{font-size:13px;color:var(--text2);line-height:1.7;font-weight:300;}
+.d-price{font-family:var(--serif);font-size:18px;color:var(--text3);white-space:nowrap;text-align:right;padding-top:2px;}
+.d-price.inc{font-size:12px;font-family:var(--sans);letter-spacing:.06em;color:var(--green);text-transform:uppercase;}
+@media(max-width:560px){.deliverable{grid-template-columns:32px 1fr}.d-price{display:none}}
+
+/* ─── SINGLE TIER PRICING ─── */
+.invest-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2);}
+.invest-inner{max-width:760px;margin:0 auto;padding:5rem 2rem;}
+.invest-inner h2{margin-bottom:2rem;}
+.tier-single{background:var(--bg3);border:1px solid var(--accent-border);border-radius:var(--radius-xl);overflow:hidden;background:rgba(240,96,27,.04);}
+.tier-top{padding:1.75rem 1.75rem 1.5rem;border-bottom:1px solid var(--accent-border);}
+.tier-badge{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);background:var(--accent-bg);border:1px solid var(--accent-border);border-radius:20px;padding:3px 8px;display:inline-block;margin-bottom:.75rem;}
+.tier-name{font-size:17px;font-weight:500;color:var(--text);margin-bottom:.4rem;letter-spacing:-.01em;}
+.tier-desc{font-size:13px;color:var(--text2);line-height:1.65;font-weight:300;}
+.tier-price-area{padding:1.5rem 1.75rem;border-bottom:1px solid var(--accent-border);display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;}
+.tier-price{font-family:var(--serif);font-size:52px;color:var(--text);line-height:1;}
+.tier-price span{font-family:var(--sans);font-size:13px;color:var(--text3);}
+.tier-plan{font-size:12px;color:var(--text3);letter-spacing:.02em;text-align:right;line-height:1.5;}
+.tier-plan strong{color:var(--text2);font-weight:500;}
+.tier-features{padding:1.25rem 1.75rem;}
+.tier-features-title{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--text3);margin-bottom:.85rem;}
+.tier-li{display:flex;align-items:flex-start;gap:10px;padding:.55rem 0;font-size:13px;color:var(--text2);font-weight:300;border-bottom:1px solid var(--border);}
+.tier-li:last-child{border-bottom:none;}
+.tier-dot{width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px;}
+.tier-cta{padding:1.5rem 1.75rem;border-top:1px solid var(--accent-border);}
+.tier-btn{display:block;width:100%;padding:14px;background:var(--accent);border:1px solid var(--accent);border-radius:var(--radius);font-size:12px;font-weight:600;font-family:var(--sans);letter-spacing:.04em;cursor:pointer;text-align:center;color:#fff;transition:background .15s;text-decoration:none;text-transform:uppercase;}
+.tier-btn:hover{background:var(--accent-dim);border-color:var(--accent-dim);}
+
+/* ─── BOTTOM CTA ─── */
+.bottom-cta{text-align:center;padding:7rem 2rem;border-top:1px solid var(--border);position:relative;overflow:hidden;}
+.bottom-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(240,96,27,.06) 0%,transparent 65%);pointer-events:none;}
+.bottom-cta h2{font-family:var(--serif);font-size:clamp(30px,5vw,54px);font-weight:400;color:var(--text);margin-bottom:1rem;letter-spacing:-.03em;line-height:1.1;position:relative;z-index:1;}
+.bottom-cta p{font-size:15px;color:var(--text2);margin:0 auto 2.5rem;max-width:420px;line-height:1.7;font-weight:300;position:relative;z-index:1;}
+.reply-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 36px;background:var(--accent);color:#fff;border-radius:var(--radius-lg);font-size:14px;font-weight:600;font-family:var(--sans);letter-spacing:.01em;cursor:pointer;transition:background .15s;position:relative;z-index:1;border:none;}
+.reply-btn:hover{background:var(--accent-dim)}
+.arrow{display:inline-block;transition:transform .2s;}
+.reply-btn:hover .arrow{transform:translateX(4px)}
+.cta-note{font-size:12px;color:var(--text3);margin-top:1rem;position:relative;z-index:1;}
+
+/* ─── FOOTER ─── */
+.foot{text-align:center;padding:2rem;font-size:11px;color:var(--text3);border-top:1px solid var(--border);letter-spacing:.04em;}
+.foot a{color:var(--text2);transition:color .15s;}
+.foot a:hover{color:var(--accent2)}
+</style>
+</head>
+<body>
+<div id="root">
+
+<!-- Nav -->
+<div class="nav-wrap">
+  <nav class="nav">
+    <div class="nav-logo">
+      <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549021/Asset_1_4x_kwj8bj.png" alt="FSCreative">
+    </div>
+    <div class="nav-r">
+      <button class="mode-btn" id="modeBtn" aria-label="Toggle mode"><div class="mode-knob"></div></button>
+      <a href="https://calendly.com/golocalgroup/brand-strategy" target="_blank" class="nav-cta">Let&rsquo;s talk &rarr;</a>
+    </div>
+  </nav>
+</div>
+
+<!-- Deliverables -->
+<div class="section" id="deliverables">
+  <div class="stag">The full build</div>
+  <h2>What gets delivered &mdash; step by step.</h2>
+  <p class="section-intro">An <strong>8-week plan with 8 weekly calls throughout.</strong> I build the brand foundation, install the content system, and set the launch strategy. You show up, shoot, and publish.</p>
+
+  <!-- Phase 01: Brand Strategy -->
+  <div class="phase-header">
+    <span class="phase-num">Phase 01 &mdash; Brand Strategy</span>
+    <div class="phase-sep"></div>
+    <span class="phase-days">Weeks 1&ndash;2</span>
+  </div>
+  <p class="phase-intro">Before anything gets made, we install the brand foundation. Every piece of content built after this comes from the same source of truth.</p>
+
+  <div class="deliverable">
+    <div class="d-num">01</div>
+    <div class="d-body">
+      <h4>Brand Blueprint</h4>
+      <p>The first exercise you&rsquo;ll run through. A guided intake that pulls positioning, avatar, voice, pillars, and strategic clarity out of your head into a shared drive we both reference forever. The source of truth for you, me, your editors, and your future hires.</p>
+    </div>
+    <div class="d-price">$500</div>
+  </div>
+
+  <div class="deliverable">
+    <div class="d-num">02</div>
+    <div class="d-body">
+      <h4>Strategy &amp; Positioning Session</h4>
+      <p>A 90-minute recorded session to define your brand voice, point of view, and content angle across your lanes: agency, wellness, and comms consultancy. We leave with a written positioning document that drives every decision after it.</p>
+    </div>
+    <div class="d-price">$500</div>
+  </div>
+
+  <div class="deliverable">
+    <div class="d-num">03</div>
+    <div class="d-body">
+      <h4>Competitor Research</h4>
+      <p>We pull the top 5&ndash;7 competitors across your lanes, break down what they post, what&rsquo;s working, and what they miss. Every hook, caption, and CTA gets filtered through this document.</p>
+    </div>
+    <div class="d-price">$350</div>
+  </div>
+
+  <!-- Phase 02: Content & Identity -->
+  <div class="phase-header">
+    <span class="phase-num">Phase 02 &mdash; Content &amp; Identity</span>
+    <div class="phase-sep"></div>
+    <span class="phase-days">Weeks 3&ndash;4</span>
+  </div>
+  <p class="phase-intro">With the strategy set, we build the system and the visual language. This is where your look and your engine get installed.</p>
+
+  <div class="deliverable">
+    <div class="d-num">04</div>
+    <div class="d-body">
+      <h4>AI-Powered Content System &middot; FrictionlessOS&trade;</h4>
+      <p>The full content OS installed on your machine. Audit competitors, capture ideas, build hooks, script videos, and generate carousels &mdash; all in one workflow tuned to your voice. Loom walkthrough included.</p>
+    </div>
+    <div class="d-price">$497</div>
+  </div>
+
+  <div class="deliverable">
+    <div class="d-num">05</div>
+    <div class="d-body">
+      <h4>Visual Identity System + 5 Reference Edits</h4>
+      <p>Color palette, typography, filters, and visual language. Delivered by doing &mdash; 2 carousels + 3 videos I personally edit as the reference set your team can use to match every future post.</p>
+    </div>
+    <div class="d-price">$1,500</div>
+  </div>
+
+  <div class="deliverable">
+    <div class="d-num">06</div>
+    <div class="d-body">
+      <h4>Cinematic Storyteller&rsquo;s Guide</h4>
+      <p>Shot angles, framing, lighting, and environment direction. A repeatable visual recipe built to translate your existing creative eye into a consistent production system your team can follow.</p>
+    </div>
+    <div class="d-price">$400</div>
+  </div>
+
+  <!-- Phase 03: Launch -->
+  <div class="phase-header">
+    <span class="phase-num">Phase 03 &mdash; Launch</span>
+    <div class="phase-sep"></div>
+    <span class="phase-days">Weeks 5&ndash;8</span>
+  </div>
+  <p class="phase-intro">The brand is built and the system is running. Now we plan the launch and the strategy that keeps it working long after we&rsquo;re done.</p>
+
+  <div class="deliverable">
+    <div class="d-num">07</div>
+    <div class="d-body">
+      <h4>30-Day Content Calendar + Launch Strategy</h4>
+      <p>Your first 30 posts mapped across content buckets: podcast clips, cinematic reels, carousels, and green-screen. Built around a rotating lead magnet strategy so every post drives toward an email capture without spending on ads. Includes a Hook Engine trained on your niche and 15 scripts written in your voice, ready to record.</p>
+    </div>
+    <div class="d-price">$850</div>
+  </div>
+
+  <div class="deliverable">
+    <div class="d-num">08</div>
+    <div class="d-body">
+      <h4>Camera &amp; Gear List</h4>
+      <p>Full recommended kit within your budget. Body, lens, filters, iPhone accessories. Specific recs, not generic &mdash; matched to what you&rsquo;ll actually shoot.</p>
+    </div>
+    <div class="d-price inc">Included</div>
+  </div>
+
+  <div class="deliverable">
+    <div class="d-num">09</div>
+    <div class="d-body">
+      <h4>Day 90 Wrap-Up Call</h4>
+      <p>A follow-up call 30 days after we wrap the 8-week engagement. We audit what&rsquo;s working, what&rsquo;s not, and map what comes next.</p>
+    </div>
+    <div class="d-price inc">Included</div>
+  </div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- Investment — Single Tier -->
+<div class="invest-wrap">
+  <div class="invest-inner">
+    <div class="stag">Investment</div>
+    <h2>The full build.</h2>
+
+    <div class="tier-single">
+      <div class="tier-top">
+        <div class="tier-badge">8-Week Custom Build</div>
+        <div class="tier-name">Done-With-You</div>
+        <div class="tier-desc">All 9 deliverables across 8 weeks. Two weeks on brand strategy, two weeks on content and identity, four weeks on launch &mdash; with weekly calls throughout.</div>
+      </div>
+      <div class="tier-price-area">
+        <div class="tier-price">$3,000<span> total</span></div>
+        <div class="tier-plan"><strong>$1,500 &times; 2</strong><br>Work starts day one</div>
+      </div>
+      <div class="tier-features">
+        <div class="tier-features-title">What&rsquo;s included</div>
+        <div class="tier-li"><div class="tier-dot"></div>All 9 deliverables</div>
+        <div class="tier-li"><div class="tier-dot"></div>8 weekly 30-min coaching calls</div>
+        <div class="tier-li"><div class="tier-dot"></div>Async DM support throughout</div>
+        <div class="tier-li"><div class="tier-dot"></div>5 reference edits by me (2 carousels + 3 videos)</div>
+        <div class="tier-li"><div class="tier-dot"></div>15 scripts written in your voice</div>
+        <div class="tier-li"><div class="tier-dot"></div>Rotating lead magnet launch strategy</div>
+        <div class="tier-li"><div class="tier-dot"></div>Fully remote, timezone-friendly</div>
+        <div class="tier-li"><div class="tier-dot"></div>You own every system, template, and asset</div>
+        <div class="tier-li"><div class="tier-dot"></div>Day 90 wrap-up call included</div>
+      </div>
+      <div class="tier-cta">
+        <a href="https://calendly.com/golocalgroup/brand-strategy" target="_blank" class="tier-btn">Book the kickoff &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- Bottom CTA -->
+<div class="bottom-cta" id="contact">
+  <h2>Ready to build<br><em style="font-style:italic">something real?</em></h2>
+  <p>Book a call and we&rsquo;ll get the kickoff on the calendar. Work starts within the week.</p>
+  <a href="https://calendly.com/golocalgroup/brand-strategy" target="_blank" class="reply-btn">
+    Let&rsquo;s talk <span class="arrow">&rarr;</span>
+  </a>
+  <div class="cta-note">2&ndash;3 builds taken per month &nbsp;&middot;&nbsp; Spots are limited</div>
+</div>
+
+<!-- Footer -->
+<div class="foot">
+  <p>&copy; 2026 FSCreative&trade; &nbsp;&middot;&nbsp; <a href="https://fscreative.live">fscreative.live</a></p>
+</div>
+
+</div>
+
+<script>
+(function(){
+  var root = document.getElementById('root');
+  var isLight = false;
+  document.getElementById('modeBtn').addEventListener('click', function(){
+    isLight = !isLight;
+    if(isLight){root.classList.add('lm');document.body.classList.add('lm');}
+    else{root.classList.remove('lm');document.body.classList.remove('lm');}
+  });
+})();
+</script>
+
+</body>
+</html>
